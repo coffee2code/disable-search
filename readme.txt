@@ -1,7 +1,7 @@
 === Disable Search ===
 Contributors: Scott Reilly
 Donate link: http://coffee2code.com
-Tags: search, disable
+Tags: search, disable, coffee2code
 Requires at least: 2.6
 Tested up to: 2.8
 Stable tag: 1.0
