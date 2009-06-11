@@ -17,7 +17,7 @@ Prevent WordPress from allowing and servicing any search requests for the blog. 
 * Submitted attempts at a search will be given a 404 File Not Found response, rendered by your sites 404.php
   template, if present.
 
-Compatible with WordPress 2.6+, 2.7+.
+Compatible with WordPress 2.6+, 2.7+, 2.8+.
 
 =>> Read the accompanying readme.txt file for more information.  Also, visit the plugin's homepage
 =>> for more information and the latest updates

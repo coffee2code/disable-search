@@ -3,8 +3,8 @@ Contributors: Scott Reilly
 Donate link: http://coffee2code.com
 Tags: search, disable
 Requires at least: 2.6
-Tested up to: 2.7.1
-Stable tag: trunk
+Tested up to: 2.8
+Stable tag: 1.0
 Version: 1.0
 
 Disable the search capabilities of WordPress.
@@ -23,7 +23,7 @@ Prevent WordPress from allowing and servicing any search requests for the blog. 
 
 == Installation ==
 
-1. Unzip `disable-search-v1.0.zip` inside the `/wp-content/plugins/` directory for your site
+1. Unzip `disable-search.zip` inside the `/wp-content/plugins/` directory for your site
 1. Activate the plugin through the 'Plugins' admin menu in WordPress
 
 == Frequently Asked Questions ==
