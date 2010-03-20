@@ -1,7 +1,12 @@
 <?php
+/**
+ * @package Disable_Search
+ * @author Scott Reilly
+ * @version 1.1
+ */
 /*
 Plugin Name: Disable Search
-Version: 1.0
+Version: 1.1
 Plugin URI: http://coffee2code.com/wp-plugins/disable-search
 Author: Scott Reilly
 Author URI: http://coffee2code.com
@@ -11,13 +16,13 @@ Prevent WordPress from allowing and servicing any search requests for the blog. 
 
 * Prevents the search form from appearing (if the theme is using the standard <code>get_search_form()</code>
   function to retrieve and display the search form).
-* Prevents the Search widget from displaying the search form.
+* Disables the Search widget.
 * With or without the search form, the plugin prevents any direct or manual requests by visitors, via either
   GET or POST requests, from actually returning any search results.
 * Submitted attempts at a search will be given a 404 File Not Found response, rendered by your sites 404.php
   template, if present.
 
-Compatible with WordPress 2.6+, 2.7+, 2.8+.
+Compatible with WordPress 2.8+, 2.9+.
 
 =>> Read the accompanying readme.txt file for more information.  Also, visit the plugin's homepage
 =>> for more information and the latest updates
@@ -25,12 +30,12 @@ Compatible with WordPress 2.6+, 2.7+, 2.8+.
 Installation:
 
 1. Download the file http://coffee2code.com/wp-plugins/disable-search.zip and unzip it into your 
-/wp-content/plugins/ directory.
+/wp-content/plugins/ directory (or install via the built-in WordPress plugin installer).
 2. Activate the plugin through the 'Plugins' admin menu in WordPress
 */
 
 /*
-Copyright (c) 2008-2009 by Scott Reilly (aka coffee2code)
+Copyright (c) 2008-2010 by Scott Reilly (aka coffee2code)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation 
 files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, 
@@ -49,18 +54,40 @@ if ( !class_exists('DisableSearch') ) :
 
 class DisableSearch {
 
+	/**
+	 * Class constructor: initializes class variables and adds actions and filters.
+	 */
 	function DisableSearch() {
 		if ( !is_admin() ) {
+			add_action('widgets_init', array(&$this, 'disable_search_widget'));
 			add_action('parse_query', array(&$this, 'parse_query'));
 			add_filter('get_search_form', array(&$this, 'get_search_form'));
 		}
 	}
 
-	function get_search_form($form) {
+	/**
+	 * Disables the built-in WP search widget
+	 */
+	function disable_search_widget() {
+		unregister_widget('WP_Widget_Search');
+	}
+
+	/**
+	 * Returns nothing as the search form.
+	 *
+	 * @return string Always returns an empty string.
+	 */
+	function get_search_form( $form ) {
 		return '';
 	}
 
-	function parse_query($obj) {
+	/**
+	 * Unsets all search-related variables in WP_Query object and sets the request as a 404 if a search was attempted.
+	 *
+	 * @param object $obj A WP_Query object
+	 * @return null
+	 */
+	function parse_query( $obj ) {
 		if ( $obj->is_search ) {
 			unset($_GET['s']);
 			unset($_POST['s']);
