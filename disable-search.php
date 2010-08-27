@@ -2,44 +2,30 @@
 /**
  * @package Disable_Search
  * @author Scott Reilly
- * @version 1.1
+ * @version 1.1.1
  */
 /*
 Plugin Name: Disable Search
-Version: 1.1
-Plugin URI: http://coffee2code.com/wp-plugins/disable-search
+Version: 1.1.1
+Plugin URI: http://coffee2code.com/wp-plugins/disable-search/
 Author: Scott Reilly
 Author URI: http://coffee2code.com
 Description: Disable the search capabilities of WordPress.
 
-Prevent WordPress from allowing and servicing any search requests for the blog.  Specifically, this plugin:
+Compatible with WordPress 2.8+, 2.9+, 3.0+.
 
-* Prevents the search form from appearing (if the theme is using the standard <code>get_search_form()</code>
-  function to retrieve and display the search form).
-* Disables the Search widget.
-* With or without the search form, the plugin prevents any direct or manual requests by visitors, via either
-  GET or POST requests, from actually returning any search results.
-* Submitted attempts at a search will be given a 404 File Not Found response, rendered by your sites 404.php
-  template, if present.
+=>> Read the accompanying readme.txt file for instructions and documentation.
+=>> Also, visit the plugin's homepage for additional information and updates.
+=>> Or visit: http://wordpress.org/extend/plugins/disable-search/
 
-Compatible with WordPress 2.8+, 2.9+.
-
-=>> Read the accompanying readme.txt file for more information.  Also, visit the plugin's homepage
-=>> for more information and the latest updates
-
-Installation:
-
-1. Download the file http://coffee2code.com/wp-plugins/disable-search.zip and unzip it into your 
-/wp-content/plugins/ directory (or install via the built-in WordPress plugin installer).
-2. Activate the plugin through the 'Plugins' admin menu in WordPress
 */
 
 /*
 Copyright (c) 2008-2010 by Scott Reilly (aka coffee2code)
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation 
-files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, 
-modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the 
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy,
+modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the
 Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
@@ -50,31 +36,31 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRA
 IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-if ( !class_exists('DisableSearch') ) :
+if ( !class_exists( 'c2c_DisableSearch' ) ) :
 
-class DisableSearch {
+class c2c_DisableSearch {
 
 	/**
 	 * Class constructor: initializes class variables and adds actions and filters.
 	 */
-	function DisableSearch() {
-		if ( !is_admin() ) {
-			add_action('widgets_init', array(&$this, 'disable_search_widget'));
-			add_action('parse_query', array(&$this, 'parse_query'));
-			add_filter('get_search_form', array(&$this, 'get_search_form'));
-		}
+	function c2c_DisableSearch() {
+		add_action( 'widgets_init',    array( &$this, 'disable_search_widget' ), 1 );
+		if ( !is_admin() )
+			add_action( 'parse_query', array( &$this, 'parse_query' ), 5 );
+		add_filter( 'get_search_form', array( &$this, 'get_search_form' ), 1 );
 	}
 
 	/**
 	 * Disables the built-in WP search widget
 	 */
 	function disable_search_widget() {
-		unregister_widget('WP_Widget_Search');
+		unregister_widget( 'WP_Widget_Search' );
 	}
 
 	/**
 	 * Returns nothing as the search form.
 	 *
+	 * @param string $form The search form to be displayed
 	 * @return string Always returns an empty string.
 	 */
 	function get_search_form( $form ) {
@@ -89,19 +75,18 @@ class DisableSearch {
 	 */
 	function parse_query( $obj ) {
 		if ( $obj->is_search ) {
-			unset($_GET['s']);
-			unset($_POST['s']);
-			unset($_REQUEST['s']);
-			$obj->set('s', '');
+			unset( $_GET['s'] );
+			unset( $_POST['s'] );
+			unset( $_REQUEST['s'] );
+			$obj->set( 's', '' );
 			$obj->is_search = false;
 			$obj->set_404();
 		}
 	}
-} // end DisableSearch
+} // end c2c_DisableSearch
+
+$GLOBALS['c2c_disable_search'] = new c2c_DisableSearch();
 
 endif; // end if !class_exists()
-
-if ( class_exists('DisableSearch') )
-	new DisableSearch();
 
 ?>
