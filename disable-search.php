@@ -2,17 +2,30 @@
 /**
  * @package Disable_Search
  * @author Scott Reilly
- * @version 1.1.1
+ * @version 1.2
  */
 /*
 Plugin Name: Disable Search
-Version: 1.1.1
+Version: 1.2
 Plugin URI: http://coffee2code.com/wp-plugins/disable-search/
 Author: Scott Reilly
 Author URI: http://coffee2code.com
 Description: Disable the search capabilities of WordPress.
 
-Compatible with WordPress 2.8+, 2.9+, 3.0+.
+Compatible with WordPress 2.8+, 2.9+, 3.0+, 3.1+.
+
+DEVELOPMENT NOTE: Due to the way WordPress hardcodes the search and inclusion
+of the searchform.php file in either the active theme or its parent, it is
+not possible for a plugin to prevent loading that form if get_search_form() is
+used and the template is present in either theme location.  In order to
+prevent the form contained in searchform.php from being shown, the template
+file searchform.php must be renamed or deleted from both the current theme and
+its parent.
+
+See http://core.trac.wordpress.org/ticket/13239 for my patch that would allow
+plugins to hook a filter in locate_template() to "hide" an existing template
+file form being detected by WordPress (among other things the filter would
+allow).
 
 =>> Read the accompanying readme.txt file for instructions and documentation.
 =>> Also, visit the plugin's homepage for additional information and updates.
@@ -21,7 +34,7 @@ Compatible with WordPress 2.8+, 2.9+, 3.0+.
 */
 
 /*
-Copyright (c) 2008-2010 by Scott Reilly (aka coffee2code)
+Copyright (c) 2008-2011 by Scott Reilly (aka coffee2code)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation
 files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy,
@@ -41,19 +54,19 @@ if ( !class_exists( 'c2c_DisableSearch' ) ) :
 class c2c_DisableSearch {
 
 	/**
-	 * Class constructor: initializes class variables and adds actions and filters.
+	 * Hooks actions and filters.
 	 */
-	function c2c_DisableSearch() {
-		add_action( 'widgets_init',    array( &$this, 'disable_search_widget' ), 1 );
+	public static function init() {
+		add_action( 'widgets_init',    array( __CLASS__, 'disable_search_widget' ), 1 );
 		if ( !is_admin() )
-			add_action( 'parse_query', array( &$this, 'parse_query' ), 5 );
-		add_filter( 'get_search_form', array( &$this, 'get_search_form' ), 1 );
+			add_action( 'parse_query', array( __CLASS__, 'parse_query' ), 5 );
+		add_filter( 'get_search_form', array( __CLASS__, 'get_search_form' ), 1 );
 	}
 
 	/**
 	 * Disables the built-in WP search widget
 	 */
-	function disable_search_widget() {
+	public static function disable_search_widget() {
 		unregister_widget( 'WP_Widget_Search' );
 	}
 
@@ -63,7 +76,7 @@ class c2c_DisableSearch {
 	 * @param string $form The search form to be displayed
 	 * @return string Always returns an empty string.
 	 */
-	function get_search_form( $form ) {
+	public static function get_search_form( $form ) {
 		return '';
 	}
 
@@ -73,7 +86,7 @@ class c2c_DisableSearch {
 	 * @param object $obj A WP_Query object
 	 * @return null
 	 */
-	function parse_query( $obj ) {
+	public static function parse_query( $obj ) {
 		if ( $obj->is_search ) {
 			unset( $_GET['s'] );
 			unset( $_POST['s'] );
@@ -85,7 +98,8 @@ class c2c_DisableSearch {
 	}
 } // end c2c_DisableSearch
 
-$GLOBALS['c2c_disable_search'] = new c2c_DisableSearch();
+
+c2c_DisableSearch::init();
 
 endif; // end if !class_exists()
 
