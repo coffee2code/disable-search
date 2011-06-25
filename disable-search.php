@@ -2,17 +2,17 @@
 /**
  * @package Disable_Search
  * @author Scott Reilly
- * @version 1.2
+ * @version 1.2.1
  */
 /*
 Plugin Name: Disable Search
-Version: 1.2
+Version: 1.2.1
 Plugin URI: http://coffee2code.com/wp-plugins/disable-search/
 Author: Scott Reilly
 Author URI: http://coffee2code.com
 Description: Disable the search capabilities of WordPress.
 
-Compatible with WordPress 2.8+, 2.9+, 3.0+, 3.1+.
+Compatible with WordPress 2.8+, 2.9+, 3.0+, 3.1+, 3.2+.
 
 DEVELOPMENT NOTE: Due to the way WordPress hardcodes the search and inclusion
 of the searchform.php file in either the active theme or its parent, it is
@@ -31,6 +31,12 @@ allow).
 =>> Also, visit the plugin's homepage for additional information and updates.
 =>> Or visit: http://wordpress.org/extend/plugins/disable-search/
 
+TODO:
+	* Rather than responding to search requests with a 404 error, allow response to be configurable:
+		* 404
+		* Redirect to a post or page
+		* Redirect back home (but set some sort of flag that can be detected so the theme can display a message)
+		* Act as if search was performed but no results were found
 */
 
 /*
@@ -49,7 +55,7 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRA
 IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-if ( !class_exists( 'c2c_DisableSearch' ) ) :
+if ( ! class_exists( 'c2c_DisableSearch' ) ) :
 
 class c2c_DisableSearch {
 
@@ -58,7 +64,7 @@ class c2c_DisableSearch {
 	 */
 	public static function init() {
 		add_action( 'widgets_init',    array( __CLASS__, 'disable_search_widget' ), 1 );
-		if ( !is_admin() )
+		if ( ! is_admin() )
 			add_action( 'parse_query', array( __CLASS__, 'parse_query' ), 5 );
 		add_filter( 'get_search_form', array( __CLASS__, 'get_search_form' ), 1 );
 	}
