@@ -5,8 +5,8 @@ Tags: search, disable, coffee2code
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
-Tested up to: 3.8
-Stable tag: 1.4
+Tested up to: 4.1
+Stable tag: 1.4.1
 
 Disable the built-in front-end search capabilities of WordPress.
 
@@ -23,7 +23,9 @@ Prevent WordPress from allowing and handling any search requests for the site.  
 * With or without the search form, the plugin prevents any direct or manual requests by visitors, via either GET or POST requests, from actually returning any search results.
 * Submitted attempts at a search will be given a 404 File Not Found response, rendered by your site's 404.php template, if present.
 
-Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/disable-search/) | [Plugin Directory Page](http://wordpress.org/plugins/disable-search/) | [Author Homepage](http://coffee2code.com)
+The plugin only affects search on the front-end of the site. It does not disable searching in the admin section of the site.
+
+Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/disable-search/) | [Plugin Directory Page](https://wordpress.org/plugins/disable-search/) | [Author Homepage](http://coffee2code.com)
 
 
 == Installation ==
@@ -44,7 +46,7 @@ No. This only disables WordPress's capabilities with regards to search.
 
 = Why do I still see a search form on my site despite having activated this plugin? =
 
-The most likely cause for this is a theme that has the markup for the search form hardcoded into the theme's template file. This is generally frowned upon nowadays (the theme should be calling `get_search_form()` to get the search form). There is no way for this plugin to prevent this hardcoded form from being displayed.
+The most likely cause for this is a theme that has the markup for the search form hardcoded into one or more of the theme's template files (excluding searchform.php). This is generally frowned upon nowadays (the theme should be calling `get_search_form()` or using searchform.php to get the search form). There is no way for this plugin to prevent this hardcoded form from being displayed.
 
 However, even if this is the case, the form won't work (thanks to this plugin), but it will still be displayed.
 
@@ -54,6 +56,11 @@ Yes.
 
 
 == Changelog ==
+
+= 1.4.1 (2015-02-15) =
+* Add trivial unit tests for plugin version and class name
+* Note compatibility through WP 4.1+
+* Update copyright date (2015)
 
 = 1.4 (2013-12-15) =
 * Change to hook 'get_search_form' at lower priority so it runs after anything else also using the filter
@@ -122,6 +129,9 @@ Yes.
 
 
 == Upgrade Notice ==
+
+= 1.4.1 =
+Trivial update: noted compatibility through WP 4.1+ and updated copyright date (2015)
 
 = 1.4 =
 Recommended update: removed admin nag about presence of searchform.php; only affect main query; added unit tests; noted compatibility through WP 3.8+

@@ -32,6 +32,14 @@ class Disable_Search_Test extends WP_UnitTestCase {
 	 */
 
 
+	function test_class_name() {
+		$this->assertTrue( class_exists( 'c2c_DisableSearch' ) );
+	}
+
+	function test_version() {
+		$this->assertEquals( '1.4.1', c2c_DisableSearch::version() );
+	}
+
 	/*
 	  This test cannot be implemented at this time (as of WP 3.8) because
 	  WordPress does not permit locate_template() to be filtered. And
@@ -110,10 +118,14 @@ class Disable_Search_Test extends WP_UnitTestCase {
 		$posts = $query->query( 's=gallifrey' );
 
 		$this->assertFalse( $query->is_main_query() );
-		$this->assertQueryTrue( 'is_search' );
+		$this->assertTrue( $query->is_search );
 		$this->assertNotEmpty( $posts );
 		$this->assertEquals( 1, count( $posts ) );
 		$this->assertEquals( $post_id1, $posts[0]->ID );
 	}
 
+	/*
+	 * TEST TODO:
+	 * - Backend search is not affected
+	 */
 }
