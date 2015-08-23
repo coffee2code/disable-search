@@ -5,8 +5,8 @@ Tags: search, disable, coffee2code
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
-Tested up to: 4.1
-Stable tag: 1.4.1
+Tested up to: 4.3
+Stable tag: 1.4.2
 
 Disable the built-in front-end search capabilities of WordPress.
 
@@ -57,10 +57,15 @@ Yes.
 
 == Changelog ==
 
+= 1.4.2 (2015-08-23) =
+* Change: Note compatibility through WP 4.3+
+* Change: Minor inline docs changes.
+
 = 1.4.1 (2015-02-15) =
 * Add trivial unit tests for plugin version and class name
 * Note compatibility through WP 4.1+
 * Update copyright date (2015)
+* Add plugin icon
 
 = 1.4 (2013-12-15) =
 * Change to hook 'get_search_form' at lower priority so it runs after anything else also using the filter
@@ -129,6 +134,9 @@ Yes.
 
 
 == Upgrade Notice ==
+
+= 1.4.2 =
+Trivial update: noted compatibility through WP 4.3+
 
 = 1.4.1 =
 Trivial update: noted compatibility through WP 4.1+ and updated copyright date (2015)

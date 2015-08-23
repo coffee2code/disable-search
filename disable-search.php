@@ -1,35 +1,36 @@
 <?php
 /**
+ * Plugin Name: Disable Search
+ * Version:     1.4.2
+ * Plugin URI:  http://coffee2code.com/wp-plugins/disable-search/
+ * Author:      Scott Reilly
+ * Author URI:  http://coffee2code.com/
+ * License:     GPLv2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Description: Disable the built-in front-end search capabilities of WordPress.
+ *
+ * Compatible with WordPress 3.6 through 4.3+.
+ *
+ * =>> Read the accompanying readme.txt file for instructions and documentation.
+ * =>> Also, visit the plugin's homepage for additional information and updates.
+ * =>> Or visit: https://wordpress.org/plugins/disable-search/
+ *
  * @package Disable_Search
- * @author Scott Reilly
- * @version 1.4.1
+ * @author  Scott Reilly
+ * @version 1.4.2
  */
+
 /*
-Plugin Name: Disable Search
-Version: 1.4.1
-Plugin URI: http://coffee2code.com/wp-plugins/disable-search/
-Author: Scott Reilly
-Author URI: http://coffee2code.com/
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Description: Disable the built-in front-end search capabilities of WordPress.
-
-Compatible with WordPress 3.6 through 4.1+.
-
-=>> Read the accompanying readme.txt file for instructions and documentation.
-=>> Also, visit the plugin's homepage for additional information and updates.
-=>> Or visit: https://wordpress.org/plugins/disable-search/
-
-TODO:
-	* Rather than responding to search requests with a 404 error, allow response to be configurable:
-		* 404
-		* 404 with custom error message (e.g. Search has been disabled)
-		* Redirect to a post or page
-		* Redirect back home (but set some sort of flag that can be detected so the theme can display a message)
-		* Act as if search was performed but no results were found
-	* Filter to allows searching to be conditionally enabled (query obj as arg)
-	* Allow front-end searches for admins (and/or all logged in users?), via a Reading option and/or filters
-*/
+ * TODO:
+ * - Rather than responding to search requests with a 404 error, allow response to be configurable:
+ *     404
+ *     404 with custom error message (e.g. Search has been disabled)
+ *     Redirect to a post or page
+ *     Redirect back home (but set some sort of flag that can be detected so the theme can display a message)
+ *     Act as if search was performed but no results were found
+ * - Filter to allows searching to be conditionally enabled (query obj as arg)
+ * - Allow front-end searches for admins (and/or all logged in users?), via a Reading option and/or filters
+ */
 
 /*
 	Copyright (c) 2008-2015 by Scott Reilly (aka coffee2code)
@@ -61,7 +62,7 @@ class c2c_DisableSearch {
 	 * @since 1.3
 	 */
 	public static function version() {
-		return '1.4.1';
+		return '1.4.2';
 	}
 
 	/**
@@ -86,6 +87,7 @@ class c2c_DisableSearch {
 	 * Returns nothing as the search form.
 	 *
 	 * @param  string $form The search form to be displayed.
+	 *
 	 * @return string Always returns an empty string.
 	 */
 	public static function get_search_form( $form ) {
@@ -97,7 +99,6 @@ class c2c_DisableSearch {
 	 * request as a 404 if a search was attempted.
 	 *
 	 * @param  object $obj A WP_Query object.
-	 * @return null
 	 */
 	public static function parse_query( $obj ) {
 		if ( $obj->is_search && $obj->is_main_query() ) {

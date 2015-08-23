@@ -8,7 +8,7 @@ class Disable_Search_Test extends WP_UnitTestCase {
 		remove_filter( 'get_search_form', array( $this, 'output_search_form' ) );
 	}
 
-	/**
+	/*
 	 *
 	 * HELPER FUNCTIONS
 	 *
@@ -25,7 +25,7 @@ class Disable_Search_Test extends WP_UnitTestCase {
 	}
 
 
-	/**
+	/*
 	 *
 	 * TESTS
 	 *
@@ -37,7 +37,7 @@ class Disable_Search_Test extends WP_UnitTestCase {
 	}
 
 	function test_version() {
-		$this->assertEquals( '1.4.1', c2c_DisableSearch::version() );
+		$this->assertEquals( '1.4.2', c2c_DisableSearch::version() );
 	}
 
 	/*
