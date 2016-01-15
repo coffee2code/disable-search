@@ -5,8 +5,8 @@ Tags: search, disable, coffee2code
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
-Tested up to: 4.3
-Stable tag: 1.4.2
+Tested up to: 4.4
+Stable tag: 1.5
 
 Disable the built-in front-end search capabilities of WordPress.
 
@@ -57,8 +57,17 @@ Yes.
 
 == Changelog ==
 
+= 1.5 (2016-01-14) =
+* Add: Set 404 HTTP status header for disabled search requests.
+* Add: Define 'Text Domain' in plugin header and load it.
+* Add: Create empty index.php to prevent files from being listed if web server has enabled directory listings.
+* Change: Perform all hook registering during plugins_loaded action.
+* Change: Explicitly declare methods in unit tests as public.
+* Change: Note compatibility through WP 4.4+.
+* Change: Update copyright date (2016).
+
 = 1.4.2 (2015-08-23) =
-* Change: Note compatibility through WP 4.3+
+* Change: Note compatibility through WP 4.3+.
 * Change: Minor inline docs changes.
 
 = 1.4.1 (2015-02-15) =
@@ -134,6 +143,9 @@ Yes.
 
 
 == Upgrade Notice ==
+
+= 1.5 =
+Minor update: set 404 HTTP status for requests to disabled search requests, verified compatibility through WP 4.4, updated copyright date (2016)
 
 = 1.4.2 =
 Trivial update: noted compatibility through WP 4.3+

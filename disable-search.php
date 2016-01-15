@@ -1,15 +1,16 @@
 <?php
 /**
  * Plugin Name: Disable Search
- * Version:     1.4.2
+ * Version:     1.5
  * Plugin URI:  http://coffee2code.com/wp-plugins/disable-search/
  * Author:      Scott Reilly
  * Author URI:  http://coffee2code.com/
+ * Text Domain: disable-search
  * License:     GPLv2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Description: Disable the built-in front-end search capabilities of WordPress.
  *
- * Compatible with WordPress 3.6 through 4.3+.
+ * Compatible with WordPress 3.6 through 4.4+.
  *
  * =>> Read the accompanying readme.txt file for instructions and documentation.
  * =>> Also, visit the plugin's homepage for additional information and updates.
@@ -17,7 +18,7 @@
  *
  * @package Disable_Search
  * @author  Scott Reilly
- * @version 1.4.2
+ * @version 1.5
  */
 
 /*
@@ -62,13 +63,26 @@ class c2c_DisableSearch {
 	 * @since 1.3
 	 */
 	public static function version() {
-		return '1.4.2';
+		return '1.5';
 	}
 
 	/**
-	 * Hooks actions and filters.
+	 * Initializes the plugin.
 	 */
 	public static function init() {
+		add_action( 'plugins_loaded', array( __CLASS__, 'do_init' ) );
+	}
+
+	/**
+	 * Performs actual initialization tasks.
+	 *
+	 * @since 1.5
+	 */
+	protected static function do_init() {
+		// Load textdomain.
+		load_plugin_textdomain( 'disable-search' );
+
+		// Register hooks.
 		add_action( 'widgets_init',    array( __CLASS__, 'disable_search_widget' ), 1 );
 		if ( ! is_admin() ) {
 			add_action( 'parse_query', array( __CLASS__, 'parse_query' ), 5 );
@@ -109,6 +123,8 @@ class c2c_DisableSearch {
 			$obj->set( 's', '' );
 			$obj->is_search = false;
 			$obj->set_404();
+			status_header( 404 );
+			nocache_headers();
 		}
 	}
 
