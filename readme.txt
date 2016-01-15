@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
 Tested up to: 4.4
-Stable tag: 1.5
+Stable tag: 1.5.1
 
 Disable the built-in front-end search capabilities of WordPress.
 
@@ -56,6 +56,9 @@ Yes.
 
 
 == Changelog ==
+
+= 1.5.1 (2016-01-15) =
+* Bugfix: Declare `do_init()` as public.
 
 = 1.5 (2016-01-14) =
 * Add: Set 404 HTTP status header for disabled search requests.
@@ -143,6 +146,9 @@ Yes.
 
 
 == Upgrade Notice ==
+
+= 1.5.1 =
+Bugfix release for bug introduced in v1.5.
 
 = 1.5 =
 Minor update: set 404 HTTP status for requests to disabled search requests, verified compatibility through WP 4.4, updated copyright date (2016)
