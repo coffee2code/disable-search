@@ -109,6 +109,8 @@ class c2c_DisableSearch {
 			add_action( 'parse_query', array( __CLASS__, 'parse_query' ), 5 );
 		}
 		add_filter( 'get_search_form', array( __CLASS__, 'get_search_form' ), 999 );
+
+		add_action( 'admin_bar_menu',  array( __CLASS__, 'admin_bar_menu' ), 11 );
 	}
 
 	/**
@@ -147,6 +149,17 @@ class c2c_DisableSearch {
 			status_header( 404 );
 			nocache_headers();
 		}
+	}
+
+	/**
+	 * Removes the search item from the admin bar.
+	 *
+	 * @since 1.6
+	 *
+	 * @param WP_Admin_Bar $wp_admin_bar The WP admin bar object.
+	 */
+	public static function admin_bar_menu( $wp_admin_bar ) {
+		$wp_admin_bar->remove_menu( 'search' );
 	}
 
 } // end c2c_DisableSearch

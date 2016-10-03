@@ -13,10 +13,11 @@ Disable the built-in front-end search capabilities of WordPress.
 
 == Description ==
 
-Prevent WordPress from allowing and handling any search requests for the site.  Specifically, this plugin:
+Prevent WordPress from allowing and handling any search requests for the site. Specifically, this plugin:
 
 * Prevents the search form from appearing if the theme uses the standard `get_search_form()` function to display the search form.
 * Prevents the search form from appearing if the theme uses a searchform.php template
+* Prevents the search item from appearing in the admin tool bar when shown on the front-end.
 * Disables the search widget.
   * Removes the Search widget from the list of available widgets
   * Deactivates any search widgets currently in use in any sidebars (they are hidden, not deleted; they'll still be in the proper locations if this plugin gets deactivated)
@@ -58,6 +59,7 @@ Yes.
 == Changelog ==
 
 = 1.6 () =
+* New: Disable search item from front-end admin bar.
 * New: Prevent object instantiation by defining private `__construct()`, `__clone()`, `__wakeup()`.
 
 = 1.5.1 (2016-01-15) =
