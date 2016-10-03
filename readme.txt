@@ -57,6 +57,9 @@ Yes.
 
 == Changelog ==
 
+= 1.6 () =
+* New: Prevent object instantiation by defining private `__construct()`, `__clone()`, `__wakeup()`.
+
 = 1.5.1 (2016-01-15) =
 * Bugfix: Declare `do_init()` as public.
 

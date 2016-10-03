@@ -63,8 +63,29 @@ class c2c_DisableSearch {
 	 * @since 1.3
 	 */
 	public static function version() {
-		return '1.5.1';
+		return '1.6';
 	}
+
+	/**
+	 * Prevent instantiation.
+	 *
+	 * @since 1.6
+	 */
+	private function __construct() {}
+
+	/**
+	 * Prevent cloning.
+	 *
+	 * @since 1.6
+	 */
+	private function __clone() {}
+
+	/**
+	 * Prevent unserializing an instance.
+	 *
+	 * @since 1.6
+	 */
+	private function __wakeup() {}
 
 	/**
 	 * Initializes the plugin.
