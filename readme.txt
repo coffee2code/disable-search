@@ -5,7 +5,7 @@ Tags: search, disable, coffee2code
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
-Tested up to: 4.4
+Tested up to: 4.7
 Stable tag: 1.5.1
 
 Disable the built-in front-end search capabilities of WordPress.
@@ -61,6 +61,8 @@ Yes.
 = 1.6 () =
 * New: Disable search item from front-end admin bar.
 * New: Prevent object instantiation by defining private `__construct()`, `__clone()`, `__wakeup()`.
+* Change: Note compatibility through WP 4.7+.
+* Change: Update copyright date (2017).
 
 = 1.5.1 (2016-01-15) =
 * Bugfix: Declare `do_init()` as public.
