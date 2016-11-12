@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
 Tested up to: 4.7
-Stable tag: 1.5.1
+Stable tag: 1.6
 
 Disable the built-in front-end search capabilities of WordPress.
 
@@ -153,6 +153,9 @@ Yes.
 
 
 == Upgrade Notice ==
+
+= 1.6 =
+Minor update: disabled search item from front-end admin bar; verified compatibility through WP 4.6+
 
 = 1.5.1 =
 Bugfix release for bug introduced in v1.5.
