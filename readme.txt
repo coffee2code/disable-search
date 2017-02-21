@@ -61,6 +61,8 @@ Yes.
 = 1.6 () =
 * New: Disable search item from front-end admin bar
 * New: Prevent object instantiation by defining private `__construct()`, `__clone()`, `__wakeup()`
+* Change: Update unit test bootstrap
+    * Default `WP_TESTS_DIR` to `/tmp/wordpress-tests-lib` rather than erroring out if not defined via environment variable
 * Change: Note compatibility through WP 4.7+
 * Change: Update copyright date (2017)
 
