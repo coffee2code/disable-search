@@ -59,10 +59,10 @@ Yes.
 == Changelog ==
 
 = 1.6 () =
-* New: Disable search item from front-end admin bar.
-* New: Prevent object instantiation by defining private `__construct()`, `__clone()`, `__wakeup()`.
-* Change: Note compatibility through WP 4.7+.
-* Change: Update copyright date (2017).
+* New: Disable search item from front-end admin bar
+* New: Prevent object instantiation by defining private `__construct()`, `__clone()`, `__wakeup()`
+* Change: Note compatibility through WP 4.7+
+* Change: Update copyright date (2017)
 
 = 1.5.1 (2016-01-15) =
 * Bugfix: Declare `do_init()` as public.
