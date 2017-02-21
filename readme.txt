@@ -58,7 +58,7 @@ Yes.
 
 == Changelog ==
 
-= 1.6 () =
+= 1.6 (2017-02-21) =
 * New: Disable search item from front-end admin bar
 * Change: Prevent object instantiation
     * Add private `__construct()`
@@ -162,7 +162,7 @@ Yes.
 == Upgrade Notice ==
 
 = 1.6 =
-Minor update: disabled search item from front-end admin bar; verified compatibility through WP 4.6+
+Minor update: disabled search item from front-end admin bar, compatibility is now WP 4.6 through 4.7+, and other minor tweaks
 
 = 1.5.1 =
 Bugfix release for bug introduced in v1.5.
