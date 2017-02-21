@@ -74,13 +74,6 @@ class c2c_DisableSearch {
 	private function __construct() {}
 
 	/**
-	 * Prevent cloning.
-	 *
-	 * @since 1.6
-	 */
-	private function __clone() {}
-
-	/**
 	 * Prevent unserializing an instance.
 	 *
 	 * @since 1.6
