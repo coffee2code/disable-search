@@ -10,7 +10,7 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Description: Disable the built-in front-end search capabilities of WordPress.
  *
- * Compatible with WordPress 3.6 through 4.7+.
+ * Compatible with WordPress 4.6 through 4.7+.
  *
  * =>> Read the accompanying readme.txt file for instructions and documentation.
  * =>> Also, visit the plugin's homepage for additional information and updates.
