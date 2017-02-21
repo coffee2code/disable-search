@@ -114,7 +114,7 @@ class c2c_DisableSearch {
 	}
 
 	/**
-	 * Disables the built-in WP search widget
+	 * Disables the built-in WP search widget.
 	 */
 	public static function disable_search_widget() {
 		unregister_widget( 'WP_Widget_Search' );
@@ -135,7 +135,7 @@ class c2c_DisableSearch {
 	 * Unsets all search-related variables in WP_Query object and sets the
 	 * request as a 404 if a search was attempted.
 	 *
-	 * @param  object $obj A WP_Query object.
+	 * @param WP_Query $obj A query object.
 	 */
 	public static function parse_query( $obj ) {
 		if ( $obj->is_search && $obj->is_main_query() ) {
