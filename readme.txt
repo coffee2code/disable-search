@@ -69,6 +69,7 @@ Yes.
 * Change: Note compatibility through WP 4.7+
 * Change: Remove support for WordPress older than 4.6 (should still work for earlier versions back to WP 3.6)
 * Change: Update copyright date (2017)
+* New: Add LICENSE file
 
 = 1.5.1 (2016-01-15) =
 * Bugfix: Declare `do_init()` as public.
