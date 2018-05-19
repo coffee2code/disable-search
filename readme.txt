@@ -65,12 +65,13 @@ Yes.
 = () =
 * New: Add README.md
 * New: Add FAQ indicating that the plugin is GDPR-compliant
-* Change: Minor whitespace tweaks to unit test bootstrap
+* Unit tests:
+    * Change: Make local copy of `assertQueryTrue()`; apparently it's (now?) a test-specific assertion and not a globally aware assertion
+    * Change: Minor whitespace tweaks to bootstrap
 * Change: Add GitHub link to readme
 * Change: Note compatibility through WP 4.9+
 * Change: Update copyright date (2018)
 * Change: Update installation instruction to prefer built-in installer over .zip file
-
 
 = 1.6 (2017-02-21) =
 * New: Disable search item from front-end admin bar
