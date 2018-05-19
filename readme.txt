@@ -58,6 +58,10 @@ Yes.
 
 == Changelog ==
 
+= () =
+* Change: Update copyright date (2018)
+
+
 = 1.6 (2017-02-21) =
 * New: Disable search item from front-end admin bar
 * Change: Prevent object instantiation
