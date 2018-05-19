@@ -5,7 +5,7 @@ Tags: search, disable, coffee2code
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.6
-Tested up to: 4.7
+Tested up to: 4.9
 Stable tag: 1.6
 
 Disable the built-in front-end search capabilities of WordPress.
@@ -59,6 +59,7 @@ Yes.
 == Changelog ==
 
 = () =
+* Change: Note compatibility through WP 4.9+
 * Change: Update copyright date (2018)
 
 
