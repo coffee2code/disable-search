@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 1.6
+Stable tag: 1.6.1
 
 Disable the built-in front-end search capabilities of WordPress.
 
@@ -62,7 +62,7 @@ Yes.
 
 == Changelog ==
 
-= () =
+= 1.6.1 (2018-05-19) =
 * New: Add README.md
 * New: Add FAQ indicating that the plugin is GDPR-compliant
 * Unit tests:
@@ -176,6 +176,9 @@ Yes.
 
 
 == Upgrade Notice ==
+
+= 1.6.1 =
+Minor update: fixed unit tests, added README.md, noted GDPR compliance, noted compatibility through WP 4.9+. and updated copyright date (2018)
 
 = 1.6 =
 Minor update: disabled search item from front-end admin bar, compatibility is now WP 4.6 through 4.7+, and other minor tweaks
