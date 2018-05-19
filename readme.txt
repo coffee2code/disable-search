@@ -26,7 +26,7 @@ Prevent WordPress from allowing and handling any search requests for the site. S
 
 The plugin only affects search on the front-end of the site. It does not disable searching in the admin section of the site.
 
-Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/disable-search/) | [Plugin Directory Page](https://wordpress.org/plugins/disable-search/) | [Author Homepage](http://coffee2code.com)
+Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/disable-search/) | [Plugin Directory Page](https://wordpress.org/plugins/disable-search/) | [GitHub](https://github.com/coffee2code/disable-search/) | [Author Homepage](http://coffee2code.com)
 
 
 == Installation ==
@@ -59,6 +59,7 @@ Yes.
 == Changelog ==
 
 = () =
+* Change: Add GitHub link to readme
 * Change: Note compatibility through WP 4.9+
 * Change: Update copyright date (2018)
 
