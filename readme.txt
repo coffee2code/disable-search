@@ -31,7 +31,7 @@ Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/disable-search/) | [P
 
 == Installation ==
 
-1. Unzip `disable-search.zip` inside the `/wp-content/plugins/` directory for your site (or install via the built-in WordPress plugin installer)
+1. Install via the built-in WordPress plugin installer. Or download and unzip `disable-search.zip` inside the plugins directory for your site (typically `wp-content/plugins/`)
 1. Activate the plugin through the 'Plugins' admin menu in WordPress
 
 
@@ -62,6 +62,7 @@ Yes.
 * Change: Add GitHub link to readme
 * Change: Note compatibility through WP 4.9+
 * Change: Update copyright date (2018)
+* Change: Update installation instruction to prefer built-in installer over .zip file
 
 
 = 1.6 (2017-02-21) =
