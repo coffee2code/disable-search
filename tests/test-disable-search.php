@@ -89,33 +89,19 @@ class Disable_Search_Test extends WP_UnitTestCase {
 		$this->assertEquals( '1.6', c2c_DisableSearch::version() );
 	}
 
-	/*
-	  This test cannot be implemented at this time (as of WP 3.8) because
-	  WordPress does not permit locate_template() to be filtered. And
-	  since locate_template() uses the STYLESHEETPATH and TEMPLATEPATH
-	  constants instead of get_stylesheet_directory() and
-	  get_template_directory(), we can't use switch_theme() to switch
-	  to twentyeleven, which is the only packaged theme with
-	  searchform.php present.
-	*/
 	public function test_no_search_form_apppears_even_if_searchform_php_exists() {
-		/* If locate_template() is changed to not use constants, and while
-		   twentyeleven is still packaged, the following code could be used
-		   as a test until locate_template() is filterable. */
-
-		/*
 		$old_theme = get_stylesheet();
-		$theme = wp_get_theme( 'twentyeleven' );
+		$theme = wp_get_theme( 'twentyseventeen' );
+		$this->assertTrue( $theme->exists() );
 		switch_theme( $theme->get_stylesheet() );
-		$this->assertEquals( 'twentyeleven', get_stylesheet() );
-		// Verify that the searchform.php file actually exists
-		$this->assertEquals( 'x', locate_template( 'searchform.php' ) );
-		// Now verify that the plugin prevents it from being used
+		$this->assertEquals( 'twentyseventeen', get_stylesheet() );
+		// Verify that the searchform.php file actually exists.
+		$this->assertEquals( get_stylesheet_directory() . '/searchform.php', locate_template( 'searchform.php' ) );
+		// Now verify that the plugin prevents it from being used.
 		$this->assertEmpty( get_search_form( false ) );
-		// Ensure we restored the original theme
+		// Ensure we restored the original theme.
 		switch_theme( $old_theme );
-		$this->assertEqual( $old_theme, get_stylesheet() );
-		*/
+		$this->assertEquals( $old_theme, get_stylesheet() );
 	}
 
 	public function test_no_search_form_appears_if_filter_is_used_to_show_one() {

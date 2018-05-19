@@ -67,6 +67,7 @@ Yes.
 * New: Add FAQ indicating that the plugin is GDPR-compliant
 * Unit tests:
     * Change: Make local copy of `assertQueryTrue()`; apparently it's (now?) a test-specific assertion and not a globally aware assertion
+    * Change: Enable and update `test_no_search_form_appears_even_if_searchform_php_exists()` to use TwentySeventeen theme, since it has searchform.php
     * Change: Minor whitespace tweaks to bootstrap
 * Change: Add GitHub link to readme
 * Change: Note compatibility through WP 4.9+
