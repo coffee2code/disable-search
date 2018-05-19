@@ -51,6 +51,10 @@ The most likely cause for this is a theme that has the markup for the search for
 
 However, even if this is the case, the form won't work (thanks to this plugin), but it will still be displayed.
 
+= Is this plugin GDPR-compliant? =
+
+Yes. This plugin does not collect, store, or disseminate any information from any users or site visitors.
+
 = Does this plugin include unit tests? =
 
 Yes.
@@ -59,6 +63,7 @@ Yes.
 == Changelog ==
 
 = () =
+* New: Add FAQ indicating that the plugin is GDPR-compliant
 * Change: Minor whitespace tweaks to unit test bootstrap
 * Change: Add GitHub link to readme
 * Change: Note compatibility through WP 4.9+
