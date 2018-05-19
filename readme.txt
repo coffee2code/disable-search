@@ -63,6 +63,7 @@ Yes.
 == Changelog ==
 
 = () =
+* New: Add README.md
 * New: Add FAQ indicating that the plugin is GDPR-compliant
 * Change: Minor whitespace tweaks to unit test bootstrap
 * Change: Add GitHub link to readme
