@@ -63,6 +63,7 @@ Yes.
 == Changelog ==
 
 = () =
+* New: Add CHANGELOG.md file and move all but most recent changelog entries into it
 * Change: Initialize plugin on 'plugins_loaded' action instead of on load
 * Change: Merge `do_init()` into `init()`
 * Change: Note compatibility through WP 5.1+
@@ -96,92 +97,7 @@ Yes.
 * Change: Update copyright date (2017)
 * New: Add LICENSE file
 
-= 1.5.1 (2016-01-15) =
-* Bugfix: Declare `do_init()` as public.
-
-= 1.5 (2016-01-14) =
-* Add: Set 404 HTTP status header for disabled search requests.
-* Add: Define 'Text Domain' in plugin header and load it.
-* Add: Create empty index.php to prevent files from being listed if web server has enabled directory listings.
-* Change: Perform all hook registering during plugins_loaded action.
-* Change: Explicitly declare methods in unit tests as public.
-* Change: Note compatibility through WP 4.4+.
-* Change: Update copyright date (2016).
-
-= 1.4.2 (2015-08-23) =
-* Change: Note compatibility through WP 4.3+.
-* Change: Minor inline docs changes.
-
-= 1.4.1 (2015-02-15) =
-* Add trivial unit tests for plugin version and class name
-* Note compatibility through WP 4.1+
-* Update copyright date (2015)
-* Add plugin icon
-
-= 1.4 (2013-12-15) =
-* Change to hook 'get_search_form' at lower priority so it runs after anything else also using the filter
-* Change to only affect main query
-* Remove admin nag for alerting about the presence of searchform.php in a theme since this no longer matters
-* Add unit tests
-* Note compatibility through WP 3.8+
-* Change minimum required compatibility to WP 3.6
-* Update copyright date (2014)
-* Add banner
-* Many changes to readme.txt documentation (namely to pare out a lot of stuff relating to suppression of searchform.php which has since been made possible in WP core)
-* Change description
-* Change donate link
-
-= 1.3.1 (unreleased) =
-* Don't show searchform.php admin nag if user doesn't have 'edit_themes' cap
-* Add check to prevent execution of code if file is directly accessed
-* Re-license as GPLv2 or later (from X11)
-* Add 'License' and 'License URI' header tags to readme.txt and plugin file
-* Remove ending PHP close tag
-* Note compatibility through WP 3.5+
-* Update copyright date (2013)
-
-= 1.3 =
-* Add notice to main themes and plugins admin pages if active theme has searchform.php template
-* Note compatibility through WP 3.3+
-* Add version() to return plugin version
-* Add more documentation and FAQ questions to readme.txt
-* Add link to plugin directory page to readme.txt
-* Update copyright date (2012)
-
-= 1.2.1 =
-* Note compatibility through WP 3.2+
-* Tiny code formatting change (spacing)
-* Fix plugin homepage and author links in description in readme.txt
-
-= 1.2 =
-* Switch from object instantiation to direct class function invocation
-* Explicitly declare all functions public static
-* Add development note
-* Add additional FAQ question
-* Note compatibility through WP 3.1+
-* Update copyright date (2011)
-
-= 1.1.1 =
-* Fix disabling of search widget
-* Move class instantiation inside of if(!class_exists()) check
-* Rename class from 'DisableSearch' to 'c2c_DisableSearch'
-* Store object instance in global variable 'c2c_disable_search' for possible external manipulation
-* Note compatibility with WP 3.0+
-* Minor code reformatting (spacing)
-* Remove documentation and instructions from top of plugin file (all of that and more are contained in readme.txt)
-* Add Upgrade Notice section to readme.txt
-
-= 1.1 =
-* Disable/unregister search widget
-* Add PHPDoc documentation
-* Minor formatting tweaks
-* Note compatibility with WP 2.9+
-* Drop compatibility with WP older than 2.8
-* Update copyright date
-* Update readme.txt (including adding Changelog)
-
-= 1.0 =
-* Initial release
+_Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/disable-search/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
