@@ -157,7 +157,6 @@ class c2c_DisableSearch {
 
 } // end c2c_DisableSearch
 
-
-c2c_DisableSearch::init();
+add_action( 'plugins_loaded', array( 'c2c_DisableSearch', 'init' ) );
 
 endif; // end if !class_exists()
