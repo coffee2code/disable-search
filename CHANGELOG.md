@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.7 _(2019-03-27)_
+* New: Add CHANGELOG.md file and move all but most recent changelog entries into it
+* Change: Initialize plugin on 'plugins_loaded' action instead of on load
+* Change: Merge `do_init()` into `init()`
+* Unit tests:
+    * Fix: Discontinue testing deprecated `is_comments_popup` condition
+    * Fix: Use `file_exists()` instead of `locate_template()` to verify presence of file in theme (the latter is unreliable since it is based on constants)
+* Change: Note compatibility through WP 5.1+
+* Change: Add README.md link to plugin's page in Plugin Directory
+* Change: Update copyright date (2019)
+* Change: Update License URI to be HTTPS
+* Change: Split paragraph in README.md's "Support" section into two
+
 ## 1.6.1 _(2018-05-19)_
 * New: Add README.md
 * New: Add FAQ indicating that the plugin is GDPR-compliant

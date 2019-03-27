@@ -86,7 +86,7 @@ class Disable_Search_Test extends WP_UnitTestCase {
 	}
 
 	public function test_version() {
-		$this->assertEquals( '1.6.1', c2c_DisableSearch::version() );
+		$this->assertEquals( '1.7', c2c_DisableSearch::version() );
 	}
 
 	public function test_no_search_form_apppears_even_if_searchform_php_exists() {

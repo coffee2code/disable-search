@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.6
 Tested up to: 5.1
-Stable tag: 1.6.1
+Stable tag: 1.7
 
 Disable the built-in front-end search capabilities of WordPress.
 
@@ -62,7 +62,7 @@ Yes.
 
 == Changelog ==
 
-= () =
+= 1.7 (2019-03-27) =
 * New: Add CHANGELOG.md file and move all but most recent changelog entries into it
 * Change: Initialize plugin on 'plugins_loaded' action instead of on load
 * Change: Merge `do_init()` into `init()`
@@ -104,6 +104,9 @@ _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/di
 
 
 == Upgrade Notice ==
+
+= 1.7 =
+Minor update: tweaked plugin initialization, noted compatibility through WP 5.1+, created CHANGELOG.md to store historical changelog outside of readme.txt, and updated copyright date (2019)
 
 = 1.6.1 =
 Minor update: fixed unit tests, added README.md, noted GDPR compliance, noted compatibility through WP 4.9+. and updated copyright date (2018)
