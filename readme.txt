@@ -68,6 +68,7 @@ Yes.
 * Change: Merge `do_init()` into `init()`
 * Unit tests:
     * Fix: Discontinue testing deprecated `is_comments_popup` condition
+    * Fix: Use `file_exists()` instead of `locate_template()` to verify presence of file in theme (the latter is unreliable since it is based on constants)
 * Change: Note compatibility through WP 5.1+
 * Change: Add README.md link to plugin's page in Plugin Directory
 * Change: Update copyright date (2019)

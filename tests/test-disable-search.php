@@ -96,7 +96,7 @@ class Disable_Search_Test extends WP_UnitTestCase {
 		switch_theme( $theme->get_stylesheet() );
 		$this->assertEquals( 'twentyseventeen', get_stylesheet() );
 		// Verify that the searchform.php file actually exists.
-		$this->assertEquals( get_stylesheet_directory() . '/searchform.php', locate_template( 'searchform.php' ) );
+		$this->assertTrue( file_exists( $theme->theme_root . '/twentyseventeen/searchform.php' ) );
 		// Now verify that the plugin prevents it from being used.
 		$this->assertEmpty( get_search_form( false ) );
 		// Ensure we restored the original theme.
