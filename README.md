@@ -2,6 +2,8 @@
 
 A plugin for WordPress that disables the built-in front-end search capabilities of WordPress.
 
+This plugin is available in the WordPress Plugin Directory: https://wordpress.org/plugins/disable-search/
+
 
 ## Installation
 
