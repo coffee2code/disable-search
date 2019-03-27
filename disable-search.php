@@ -84,15 +84,6 @@ class c2c_DisableSearch {
 	 * Initializes the plugin.
 	 */
 	public static function init() {
-		add_action( 'plugins_loaded', array( __CLASS__, 'do_init' ) );
-	}
-
-	/**
-	 * Performs actual initialization tasks.
-	 *
-	 * @since 1.5
-	 */
-	public static function do_init() {
 		// Load textdomain.
 		load_plugin_textdomain( 'disable-search' );
 
