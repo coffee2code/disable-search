@@ -63,6 +63,7 @@ Yes.
 == Changelog ==
 
 = () =
+* Change: Update copyright date (2019)
 * Change: Update License URI to be HTTPS
 
 = 1.6.1 (2018-05-19) =
