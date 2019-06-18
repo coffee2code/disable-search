@@ -5,6 +5,7 @@
     * Change: Update unit test install script and bootstrap to use latest WP unit test repo
     * New: Test that the plugin hooks `plugins_loaded` for initialization
 * Change: Note compatibility through WP 5.2+
+* Change: Add link to CHANGELOG.md in README.md
 
 ## 1.7 _(2019-03-27)_
 * New: Add CHANGELOG.md file and move all but most recent changelog entries into it
