@@ -1,5 +1,8 @@
 # Changelog
 
+## _(in-progress)_
+* Change: Update unit test install script and bootstrap to use latest WP unit test repo
+
 ## 1.7 _(2019-03-27)_
 * New: Add CHANGELOG.md file and move all but most recent changelog entries into it
 * Change: Initialize plugin on 'plugins_loaded' action instead of on load
