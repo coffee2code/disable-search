@@ -89,6 +89,10 @@ class Disable_Search_Test extends WP_UnitTestCase {
 		$this->assertEquals( '1.7', c2c_DisableSearch::version() );
 	}
 
+	public function test_hooks_plugins_loaded() {
+		$this->assertEquals( 10, has_action( 'plugins_loaded', array( 'c2c_DisableSearch', 'init' ) ) );
+	}
+
 	public function test_no_search_form_apppears_even_if_searchform_php_exists() {
 		$old_theme = get_stylesheet();
 		$theme = wp_get_theme( 'twentyseventeen' );
