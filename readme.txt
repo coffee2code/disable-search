@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.6
 Tested up to: 5.2
-Stable tag: 1.7
+Stable tag: 1.7.1
 
 Disable the built-in front-end search capabilities of WordPress.
 
@@ -62,6 +62,13 @@ Yes.
 
 == Changelog ==
 
+= 1.7.1 (2019-06-17) =
+* Unit tests:
+    * Change: Update unit test install script and bootstrap to use latest WP unit test repo
+    * New: Test that the plugin hooks `plugins_loaded` for initialization
+* Change: Note compatibility through WP 5.2+
+* Change: Add link to CHANGELOG.md in README.md
+
 = 1.7 (2019-03-27) =
 * New: Add CHANGELOG.md file and move all but most recent changelog entries into it
 * Change: Initialize plugin on 'plugins_loaded' action instead of on load
@@ -87,23 +94,13 @@ Yes.
 * Change: Update copyright date (2018)
 * Change: Update installation instruction to prefer built-in installer over .zip file
 
-= 1.6 (2017-02-21) =
-* New: Disable search item from front-end admin bar
-* Change: Prevent object instantiation
-    * Add private `__construct()`
-    * Add private `__wakeup()`
-* Change: Update unit test bootstrap
-    * Default `WP_TESTS_DIR` to `/tmp/wordpress-tests-lib` rather than erroring out if not defined via environment variable
-    * Enable more error output for unit tests
-* Change: Note compatibility through WP 4.7+
-* Change: Remove support for WordPress older than 4.6 (should still work for earlier versions back to WP 3.6)
-* Change: Update copyright date (2017)
-* New: Add LICENSE file
-
 _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/disable-search/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 1.7.1 =
+Trivial update: modernized unit tests and noted compatibility through WP 5.2+
 
 = 1.7 =
 Minor update: tweaked plugin initialization, noted compatibility through WP 5.1+, created CHANGELOG.md to store historical changelog outside of readme.txt, and updated copyright date (2019)

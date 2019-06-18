@@ -1,6 +1,6 @@
 # Changelog
 
-## _(in-progress)_
+## 1.7.1 _(2019-06-17)_
 * Unit tests:
     * Change: Update unit test install script and bootstrap to use latest WP unit test repo
     * New: Test that the plugin hooks `plugins_loaded` for initialization
