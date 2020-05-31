@@ -2,9 +2,9 @@
 /**
  * Plugin Name: Disable Search
  * Version:     1.7.2
- * Plugin URI:  http://coffee2code.com/wp-plugins/disable-search/
+ * Plugin URI:  https://coffee2code.com/wp-plugins/disable-search/
  * Author:      Scott Reilly
- * Author URI:  http://coffee2code.com/
+ * Author URI:  https://coffee2code.com/
  * Text Domain: disable-search
  * License:     GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
