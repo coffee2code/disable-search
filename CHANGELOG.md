@@ -1,5 +1,8 @@
 # Changelog
 
+## _(in-progress)_
+* Change: Note compatibility through WP 5.4+
+
 ## 1.7.2 _(2019-12-12)_
 * Change: Note compatibility through WP 5.3+
 * Change: Unit tests: Change method signature of `assertQueryTrue()` to match parent's update to use the spread operator
