@@ -72,6 +72,23 @@ class Disable_Search_Test extends WP_UnitTestCase {
 
 	//
 	//
+	// DATA PROVIDERS
+	//
+	//
+
+
+	public static function get_default_hooks() {
+		return array(
+			array( 'action', 'widgets_init',                 'disable_search_widget',   1 ),
+			array( 'action', 'parse_query',                  'parse_query',             5 ),
+			array( 'filter', 'get_search_form',              'get_search_form',       999 ),
+			array( 'action', 'admin_bar_menu',               'admin_bar_menu',         11 ),
+		);
+	}
+
+
+	//
+	//
 	// TESTS
 	//
 	//
@@ -87,6 +104,22 @@ class Disable_Search_Test extends WP_UnitTestCase {
 
 	public function test_hooks_plugins_loaded() {
 		$this->assertEquals( 10, has_action( 'plugins_loaded', array( 'c2c_DisableSearch', 'init' ) ) );
+	}
+
+	/**
+	 * @dataProvider get_default_hooks
+	 */
+	public function test_default_hooks( $hook_type, $hook, $function, $priority ) {
+		$callback = array( 'c2c_DisableSearch', $function );
+
+		$prio = $hook_type === 'action' ?
+			has_action( $hook, $callback ) :
+			has_filter( $hook, $callback );
+
+		$this->assertNotFalse( $prio );
+		if ( $priority ) {
+			$this->assertEquals( $priority, $prio );
+		}
 	}
 
 	public function test_no_search_form_apppears_even_if_searchform_php_exists() {
@@ -157,6 +190,31 @@ class Disable_Search_Test extends WP_UnitTestCase {
 		$this->assertNotEmpty( $posts );
 		$this->assertEquals( 1, count( $posts ) );
 		$this->assertEquals( $post_id1, $posts[0]->ID );
+	}
+
+	/*
+	 * TESTS AFTER THIS SHOULD ASSUME THEY ARE IN THE ADMIN AREA
+	 */
+
+	// This should be the first of the true admin area tests and is
+	// necessary to set the environment to be the admin area.
+	public function test_in_admin_area() {
+		define( 'WP_ADMIN', true );
+
+		$this->assertTrue( is_admin() );
+	}
+
+	public function test_does_not_hook_parse_query_in_admin() {
+		// Remove query altering hook.
+		remove_action( 'parse_query', array( 'c2c_DisableSearch', 'parse_query' ), 5 );
+		// Also remove a hook as a way to verify hooks are otherwise re-registered.
+		remove_action( 'widgets_init', array( 'c2c_DisableSearch', 'disable_search_widget' ), 1 );
+
+		// Refire registration of hooks.
+		c2c_DisableSearch::init();
+
+		$this->assertFalse( has_action( 'parse_query', array( 'c2c_DisableSearch', 'parse_query' ) ) );
+		$this->assertEquals( 1, has_action( 'widgets_init', array( 'c2c_DisableSearch', 'disable_search_widget' ) ) );
 	}
 
 	/*
