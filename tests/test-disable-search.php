@@ -4,13 +4,6 @@ defined( 'ABSPATH' ) or die();
 
 class Disable_Search_Test extends WP_UnitTestCase {
 
-	public function tearDown() {
-		parent::tearDown();
-		// Ensure the filter gets removed
-		remove_filter( 'get_search_form', array( $this, 'output_search_form' ) );
-	}
-
-
 	/*
 	 *
 	 * HELPER FUNCTIONS
