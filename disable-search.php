@@ -22,18 +22,6 @@
  */
 
 /*
- * TODO:
- * - Rather than responding to search requests with a 404 error, allow response to be configurable:
- *     404
- *     404 with custom error message (e.g. Search has been disabled)
- *     Redirect to a post or page
- *     Redirect back home (but set some sort of flag that can be detected so the theme can display a message)
- *     Act as if search was performed but no results were found
- * - Filter to allows searching to be conditionally enabled (query obj as arg)
- * - Allow front-end searches for admins (and/or all logged in users?), via a Reading option and/or filters
- */
-
-/*
 	Copyright (c) 2008-2020 by Scott Reilly (aka coffee2code)
 
 	This program is free software; you can redistribute it and/or
