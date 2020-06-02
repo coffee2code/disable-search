@@ -83,7 +83,7 @@ class Disable_Search_Test extends WP_UnitTestCase {
 			array( 'action', 'parse_query',                  'parse_query',             5 ),
 			array( 'filter', 'get_search_form',              'get_search_form',       999 ),
 			array( 'action', 'admin_bar_menu',               'admin_bar_menu',         11 ),
-			array( 'filter', 'disable_wpseo_json_ld_search', '__return_true',          10 ),
+			array( 'filter', 'disable_wpseo_json_ld_search', '__return_true',          10, false ),
 		);
 	}
 
@@ -110,8 +110,8 @@ class Disable_Search_Test extends WP_UnitTestCase {
 	/**
 	 * @dataProvider get_default_hooks
 	 */
-	public function test_default_hooks( $hook_type, $hook, $function, $priority ) {
-		$callback = array( 'c2c_DisableSearch', $function );
+	public function test_default_hooks( $hook_type, $hook, $function, $priority, $class_method = true ) {
+		$callback = $class_method ? array( 'c2c_DisableSearch', $function ) : $function;
 
 		$prio = $hook_type === 'action' ?
 			has_action( $hook, $callback ) :
