@@ -218,8 +218,21 @@ class Disable_Search_Test extends WP_UnitTestCase {
 		$this->assertEquals( 1, has_action( 'widgets_init', array( 'c2c_DisableSearch', 'disable_search_widget' ) ) );
 	}
 
-	/*
-	 * TEST TODO:
-	 * - Backend search is not affected
-	 */
+	public function test_backend_search_unaffected() {
+		// Remove query altering hook.
+		remove_action( 'parse_query', array( 'c2c_DisableSearch', 'parse_query' ), 5 );
+		// Refire registration of hooks.
+		c2c_DisableSearch::init();
+
+		list( $post_id1, $post_id2 ) = $this->create_posts();
+
+		$this->go_to( 'wp-admin/edit.php?s=gallifrey&post_status=all&post_type=post' );
+
+		$this->assertTrue( $GLOBALS['wp_query']->is_main_query() );
+		$this->assertEquals( get_query_var( 's' ), 'gallifrey' );
+		$this->assertQueryTrue( 'is_admin', 'is_search' );
+		$this->assertEquals( 1, count( $GLOBALS['wp_query']->posts ) );
+		$this->assertEquals( $post_id1, $GLOBALS['wp_query']->posts[0]->ID );
+	}
+
 }

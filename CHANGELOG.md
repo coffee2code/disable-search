@@ -8,6 +8,7 @@
 * Change: Update links to coffee2code.com to be HTTPS
 * Unit tests:
     * New: Add tests for hooking actions and filters
+    * New: Add test for backend searches not being affected
     * Change: Remove unnecessary unregistering of hooks and thusly delete `tearDown()`
 
 ## 1.7.2 _(2019-12-12)_
