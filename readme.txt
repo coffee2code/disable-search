@@ -13,7 +13,7 @@ Disable the built-in front-end search capabilities of WordPress.
 
 == Description ==
 
-Prevent WordPress from allowing and handling any search requests for the site. Specifically, this plugin:
+This plugin prevents WordPress from allowing and handling any search requests from the front-end of the site. Specifically, this plugin:
 
 * Prevents the search form from appearing if the theme uses the standard `get_search_form()` function to display the search form.
 * Prevents the search form from appearing if the theme uses a searchform.php template
