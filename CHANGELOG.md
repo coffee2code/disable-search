@@ -1,6 +1,6 @@
 # Changelog
 
-## _(in-progress)_
+## 1.8 _(2020-06-02)_
 * New: Disable output of `SearchAction` in SEO schema by Yoast SEO. Props @galengidman.
 * New: Add TODO.md and move existing TODO list from top of main plugin file into it (and add to it)
 * Change: Use HTTPS for link to WP SVN repository in bin script for configuring unit tests
