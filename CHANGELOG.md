@@ -1,6 +1,6 @@
 # Changelog
 
-## _(in-progress)_
+## 1.8.2 _(2021-04-08)_
 * Change: Note compatibility through WP 5.7+
 * Change: Update copyright date (2021)
 * Change: Tweak wording and formatting of readme.txt
