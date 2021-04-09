@@ -22,6 +22,14 @@ class Disable_Search_Test extends WP_UnitTestCase {
 		return $posts;
 	}
 
+	private function create_user( $role, $set_as_current = true ) {
+		$user_id = $this->factory->user->create( array( 'role' => $role ) );
+		if ( $set_as_current ) {
+			wp_set_current_user( $user_id );
+		}
+		return $user_id;
+	}
+
 	/**
 	 * Check each of the WP_Query is_* functions/properties against expected boolean value.
 	 *
@@ -191,6 +199,46 @@ class Disable_Search_Test extends WP_UnitTestCase {
 		$this->assertNotEmpty( $posts );
 		$this->assertEquals( 1, count( $posts ) );
 		$this->assertEquals( $post_id1, $posts[0]->ID );
+	}
+
+	public function test_admin_bar_search_widget_is_not_rendered() {
+		global $wp_admin_bar;
+
+		$user_id  = $this->create_user( 'editor' );
+		_wp_admin_bar_init();
+
+		ob_start();
+		wp_admin_bar_render();
+		$output = ob_get_contents();
+		ob_end_clean();
+
+		$this->assertFalse( strpos( $output, 'adminbar-search' ) );
+	}
+
+	/**
+	 * Sanity check to verify search appears if not for this plugin.
+	 */
+	public function test_admin_bar_search_widget_rendered_without_this_plugin() {
+		global $wp_admin_bar;
+
+		remove_action( 'admin_bar_menu',  array( 'c2c_DisableSearch', 'admin_bar_menu' ), 11 );
+
+		$user_id  = $this->create_user( 'editor' );
+		_wp_admin_bar_init();
+
+		ob_start();
+
+		// Reproduce necessary parts of `wp_admin_bar_render()`, which only
+		// renders once.
+		do_action_ref_array( 'admin_bar_menu', array( &$wp_admin_bar ) );
+		do_action( 'wp_before_admin_bar_render' );
+		$wp_admin_bar->render();
+		do_action( 'wp_after_admin_bar_render' );
+
+		$output = ob_get_contents();
+		ob_end_clean();
+
+		$this->assertNotFalse( strpos( $output, 'adminbar-search' ) );
 	}
 
 	/*
