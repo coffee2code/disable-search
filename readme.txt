@@ -16,12 +16,12 @@ Disable the built-in front-end search capabilities of WordPress.
 This plugin prevents WordPress from allowing and handling any search requests from the front-end of the site. Specifically, this plugin:
 
 * Prevents the search form from appearing if the theme uses the standard `get_search_form()` function to display the search form.
-* Prevents the search form from appearing if the theme uses a searchform.php template
+* Prevents the search form from appearing if the theme uses a `searchform.php` template
 * Prevents the search item from appearing in the admin tool bar when shown on the front-end.
 * Disables the search widget.
   * Removes the Search widget from the list of available widgets
-  * Deactivates any search widgets currently in use in any sidebars (they are hidden, not deleted; they'll still be in the proper locations if this plugin gets deactivated)
-* With or without the search form, the plugin prevents any direct or manual requests by visitors, via either GET or POST requests, from actually returning any search results.
+  * Deactivates any search widgets currently in use in any sidebars (they are hidden, not deleted; they'll reappear in their original locations if this plugin gets deactivated)
+* With or without a search form, the plugin prevents any direct or manual requests by visitors, via either GET or POST requests, from actually returning any search results.
 * Submitted attempts at a search will be given a 404 File Not Found response, rendered by your site's 404.php template, if present.
 * Disables output of `SearchAction` in SEO schema by the [Yoast SEO](https://wordpress.org/plugins/wordpress-seo/) plugin.
 
@@ -46,9 +46,11 @@ No.
 
 No. This only disables WordPress's capabilities with regards to search.
 
+Search engines index your site and search their index of your site. They do not make use of your site's native search capabilities. You can only prevent search engines from searching your site by blocking their web crawlers and purging their cache of your site (which is well beyond the scope of this plugin).
+
 = Why do I still see a search form on my site despite having activated this plugin? =
 
-The most likely cause for this is a theme that has the markup for the search form hardcoded into one or more of the theme's template files (excluding searchform.php). This is generally frowned upon nowadays (the theme should be calling `get_search_form()` or using searchform.php to get the search form). There is no way for this plugin to prevent this hardcoded form from being displayed.
+The most likely cause for this is a theme that has the markup for the search form hardcoded into one or more of the theme's template files (excluding `searchform.php`). This is generally frowned upon nowadays (the theme should be calling `get_search_form()` or using `searchform.php` to get the search form). There is no way for this plugin to prevent this hardcoded form from being displayed.
 
 However, even if this is the case, the form won't work (thanks to this plugin), but it will still be displayed.
 

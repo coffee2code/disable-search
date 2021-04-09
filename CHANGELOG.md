@@ -3,6 +3,7 @@
 ## _(in-progress)_
 * Change: Note compatibility through WP 5.7+
 * Change: Update copyright date (2021)
+* Change: Tweak wording and formatting of readme.txt
 * New: Add FAQ entry
 * New: Add unit tests to verify search is removed from admin bar
 
