@@ -52,6 +52,10 @@ The most likely cause for this is a theme that has the markup for the search for
 
 However, even if this is the case, the form won't work (thanks to this plugin), but it will still be displayed.
 
+= Can the front-end search only be selectively disabled, allowing it to appear and work under certain conditions (such as only for logged-in users, etc)? =
+
+No, not at this time, though it is feature being considered. (In truth, custom coding could certainly be used to achieve this, but that obviously requires coding knowledge.)
+
 = Is this plugin GDPR-compliant? =
 
 Yes. This plugin does not collect, store, or disseminate any information from any users or site visitors.
