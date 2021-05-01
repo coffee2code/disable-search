@@ -65,8 +65,9 @@ class c2c_DisableSearch {
 	 * Prevent unserializing an instance.
 	 *
 	 * @since 1.6
+	 * @since 1.8.3 Changed method visibility from private to public.
 	 */
-	private function __wakeup() {}
+	public function __wakeup() {}
 
 	/**
 	 * Initializes the plugin.

@@ -1,5 +1,8 @@
 # Changelog
 
+## _(in-progress)_
+* Fix: Change `__wakeup()` method visibility from `private` to `public` to avoid warnings under PHP8
+
 ## 1.8.2 _(2021-04-08)_
 * Change: Note compatibility through WP 5.7+
 * Change: Update copyright date (2021)
