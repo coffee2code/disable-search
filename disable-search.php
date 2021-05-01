@@ -62,12 +62,15 @@ class c2c_DisableSearch {
 	private function __construct() {}
 
 	/**
-	 * Prevent unserializing an instance.
+	 * Prevent unserializing an instance of the class.
 	 *
 	 * @since 1.6
-	 * @since 1.8.3 Changed method visibility from private to public.
+	 * @since 1.8.3 Changed method visibility from private to public and throw exception if invoked.
 	 */
-	public function __wakeup() {}
+	public function __wakeup() {
+		/* translators: %s: Name of plugin class. */
+		throw new Error( sprintf( __( '%s cannot be unserialized.', 'disable-search' ), __CLASS__ ) );
+	}
 
 	/**
 	 * Initializes the plugin.

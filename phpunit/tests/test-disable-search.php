@@ -131,6 +131,22 @@ class Disable_Search_Test extends WP_UnitTestCase {
 		}
 	}
 
+	/**
+	 * @expectedException Error
+	 */
+	public function test_unable_to_instantiation_object_from_class() {
+		new c2c_DisableSearch;
+	}
+
+	/**
+	 * @expectedException Error
+	 */
+	public function test_unable_to_unserialize_an_instance_of_the_class() {
+		$data = 'O:17:"c2c_DisableSearch":0:{}';
+
+		unserialize( $data );
+	}
+
 	public function test_no_search_form_apppears_even_if_searchform_php_exists() {
 		$old_theme = get_stylesheet();
 		$theme = wp_get_theme( 'twentyseventeen' );
