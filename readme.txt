@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.6
 Tested up to: 5.7
-Stable tag: 1.8.2
+Stable tag: 1.8.3
 
 Disable the built-in front-end search capabilities of WordPress.
 
@@ -69,6 +69,10 @@ Yes.
 
 == Changelog ==
 
+= 1.8.3 (2021-05-01) =
+* Fix: Change `__wakeup()` method visibility from `private` to `public` to avoid warnings under PHP8
+* Fix: Throw an error when attempting to unserialize an instance of the class to actually prevent it from happening
+
 = 1.8.2 (2021-04-08) =
 * Change: Note compatibility through WP 5.7+
 * Change: Update copyright date (2021)
@@ -85,21 +89,13 @@ Yes.
     * Change: Rename `phpunit.xml` to `phpunit.xml.dist` per best practices
 * Change: Note compatibility through WP 5.5+
 
-= 1.8 (2020-06-02) =
-* New: Disable output of `SearchAction` in SEO schema by Yoast SEO. Props @galengidman.
-* New: Add TODO.md and move existing TODO list from top of main plugin file into it (and add to it)
-* Change: Use HTTPS for link to WP SVN repository in bin script for configuring unit tests
-* Change: Note compatibility through WP 5.4+
-* Change: Update links to coffee2code.com to be HTTPS
-* Unit tests:
-    * New: Add tests for hooking actions and filters
-    * New: Add test for backend searches not being affected
-    * Change: Remove unnecessary unregistering of hooks and thusly delete `tearDown()`
-
 _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/disable-search/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 1.8.3 =
+Bugfix update: prevented PHP warnings when running under PHP 8 and actually prevent object unserialization.
 
 = 1.8.2 =
 Trivial update: noted compatibility through WP 5.7+, added some additional unit tests, tweaked readme.txt, and updated copyright date (2021).
