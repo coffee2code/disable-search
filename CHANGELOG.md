@@ -1,5 +1,8 @@
 # Changelog
 
+## _(in-progress)_
+* Change: Note compatibility through WP 5.8+
+
 ## 1.8.3 _(2021-05-01)_
 * Fix: Change `__wakeup()` method visibility from `private` to `public` to avoid warnings under PHP8
 * Fix: Throw an error when attempting to unserialize an instance of the class to actually prevent it from happening
