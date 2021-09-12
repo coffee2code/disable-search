@@ -7,6 +7,7 @@
         * Change: Move `phpunit/` into `tests/`
         * Change: Move `phpunit/bin` into `tests/`
     * Change: Remove 'test-' prefix from unit test file
+    * Change: In bootstrap, store path to plugin file constant
 
 ## 1.8.3 _(2021-05-01)_
 * Fix: Change `__wakeup()` method visibility from `private` to `public` to avoid warnings under PHP8
