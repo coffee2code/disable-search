@@ -1,5 +1,5 @@
 <phpunit
-	bootstrap="phpunit/bootstrap.php"
+	bootstrap="tests/phpunit/bootstrap.php"
 	backupGlobals="false"
 	colors="true"
 	convertErrorsToExceptions="true"
@@ -8,7 +8,7 @@
 	>
 	<testsuites>
 		<testsuite name="disable-search">
-			<directory prefix="test-" suffix=".php">./phpunit/tests/</directory>
+			<directory prefix="test-" suffix=".php">./tests/phpunit/tests/</directory>
 		</testsuite>
 	</testsuites>
 </phpunit>
