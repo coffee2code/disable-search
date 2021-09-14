@@ -21,6 +21,9 @@ This plugin prevents WordPress from allowing and handling any search requests fr
 * Disables the search widget.
   * Removes the Search widget from the list of available widgets
   * Deactivates any search widgets currently in use in any sidebars (they are hidden, not deleted; they'll reappear in their original locations if this plugin gets deactivated)
+* Disables the search block.
+  * Removes the Search block from the list of available blocks
+  * Deactivates any search blocks currently in use, such as in posts or as a widget (they are disabled, not deleted; they'll reappear if this plugin gets deactivated and the associated placeholder block doesn't get deleted)
 * With or without a search form, the plugin prevents any direct or manual requests by visitors, via either GET or POST requests, from actually returning any search results.
 * Submitted attempts at a search will be given a 404 File Not Found response, rendered by your site's 404.php template, if present.
 * Disables output of `SearchAction` in SEO schema by the [Yoast SEO](https://wordpress.org/plugins/wordpress-seo/) plugin.

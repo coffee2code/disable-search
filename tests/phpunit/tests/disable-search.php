@@ -92,6 +92,8 @@ class Disable_Search_Test extends WP_UnitTestCase {
 			array( 'filter', 'get_search_form',              'get_search_form',       999 ),
 			array( 'action', 'admin_bar_menu',               'admin_bar_menu',         11 ),
 			array( 'filter', 'disable_wpseo_json_ld_search', '__return_true',          10, false ),
+			array( 'action', 'init',                         'disable_core_search_block',   11 ),
+			array( 'action', 'enqueue_block_editor_assets',  'enqueue_block_editor_assets', 10 ),
 		);
 	}
 
@@ -175,6 +177,34 @@ class Disable_Search_Test extends WP_UnitTestCase {
 	 */
 	public function test_search_widget_is_no_longer_available() {
 		$this->assertNotContains( 'WP_Widget_Search', array_keys( $GLOBALS['wp_widget_factory']->widgets ) );
+	}
+
+	public function test_search_block_is_no_longer_available() {
+		$this->assertFalse( WP_Block_Type_Registry::get_instance()->is_registered( 'core/search' ) );
+	}
+
+	public function test_verify_search_block_is_no_longer_available() {
+		$block    = 'core/search';
+		$registry = WP_Block_Type_Registry::get_instance();
+		register_block_core_search();
+
+		$this->assertTrue( $registry->is_registered( $block ) );
+
+		c2c_DisableSearch::disable_core_search_block();
+
+		$this->assertFalse( $registry->is_registered( $block ) );
+	}
+
+	public function test_enqueue_block_editor_assets() {
+		$key = 'disable-search-js';
+
+		$this->assertFalse( wp_script_is( $key, 'registered' ) );
+		$this->assertFalse( wp_script_is( $key, 'enqueued' ) );
+
+		do_action( 'enqueue_block_editor_assets' );
+
+		$this->assertTrue( wp_script_is( $key, 'registered' ) );
+		$this->assertTrue( wp_script_is( $key, 'enqueued' ) );
 	}
 
 	public function test_search_request_returns_no_results_for_main_query() {

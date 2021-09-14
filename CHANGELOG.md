@@ -1,6 +1,11 @@
 # Changelog
 
 ## _(in-progress)_
+* New: Disable the search block
+  * New: Add `disable_core_search_block()` to unregister block via PHP
+  * New: Add `enqueue_block_editor_assets()` to register JS script to unregister search block via JS
+  * New: Add JS script file to unregister search block
+  * Change: Update documentation to reflect search block being disabled
 * Change: Note compatibility through WP 5.8+
 * Unit tests:
     * Change: Restructure unit test directories

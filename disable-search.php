@@ -89,6 +89,11 @@ class c2c_DisableSearch {
 		add_action( 'admin_bar_menu',  array( __CLASS__, 'admin_bar_menu' ), 11 );
 
 		add_filter( 'disable_wpseo_json_ld_search', '__return_true' );
+
+		// Disable core search block.
+		add_action( 'init',                        array( __CLASS__, 'disable_core_search_block' ), 11 );
+		add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'enqueue_block_editor_assets' ) );
+
 	}
 
 	/**
@@ -96,6 +101,37 @@ class c2c_DisableSearch {
 	 */
 	public static function disable_search_widget() {
 		unregister_widget( 'WP_Widget_Search' );
+	}
+
+	/**
+	 * Unregisters the core/search block (at least for PHP).
+	 *
+	 * Though this tehnically works (the block gets unregistered), it doesn't
+	 * actually disable the block, which is at least still available via JS and
+	 * thus is functionally equivalent to this doing nothing.
+	 *
+	 * The use of the `'allowed_block_types_all'` filter seems ideal for this
+	 * sort of thing, but it has its issues at present (see associated link).
+	 *
+	 * @link https://github.com/WordPress/gutenberg/issues/12931
+	 * @since 2.0
+	 */
+	public static function disable_core_search_block() {
+		if ( function_exists( 'unregister_block_type' ) ) {
+			$block = 'core/search';
+			if ( WP_Block_Type_Registry::get_instance()->is_registered( $block ) ) {
+				unregister_block_type( $block );
+			}
+		}
+	}
+
+	/**
+	 * Enqueues block editor assets, notable to disable the search block.
+	 *
+	 * @since 2.0
+	 */
+	public static function enqueue_block_editor_assets() {
+		wp_enqueue_script( 'disable-search-js', plugins_url( '/assets/js/disable-search.js', __FILE__ ), array( 'wp-blocks', 'wp-dom' ), self::version(), true );
 	}
 
 	/**
