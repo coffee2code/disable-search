@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.6
 Tested up to: 5.7
-Stable tag: 1.8.3
+Stable tag: 2.0
 
 Disable the built-in front-end search capabilities of WordPress.
 
@@ -72,6 +72,29 @@ Yes.
 
 == Changelog ==
 
+= 2.0 (2021-09-13) =
+Highlights:
+
+* This release finally addresses disabling the search block, notes compatibility through WP 5.8+, and restructures unit test directories.
+
+Details:
+
+* New: Disable the search block
+    * New: Add `disable_core_search_block()` to unregister block via PHP
+    * New: Add `enqueue_block_editor_assets()` to register JS script to unregister search block via JS
+    * New: Add JS script file to unregister search block
+    * Change: Update documentation to reflect search block being disabled
+* Change: Remove `get_search_form()` and simply use `__return_empty_string()` as callback to `'get_search_form'` filter
+* Change: Note compatibility through WP 5.8+
+* Change: Tweak installation instruction
+* Unit tests:
+    * Change: Restructure unit test directories
+        * Change: Move `phpunit/` into `tests/`
+        * Change: Move `phpunit/bin` into `tests/`
+    * Change: Remove 'test-' prefix from unit test file
+    * Change: In bootstrap, store path to plugin file constant
+    * Change: In bootstrap, add backcompat for PHPUnit pre-v6.0
+
 = 1.8.3 (2021-05-01) =
 * Fix: Change `__wakeup()` method visibility from `private` to `public` to avoid warnings under PHP8
 * Fix: Throw an error when attempting to unserialize an instance of the class to actually prevent it from happening
@@ -83,19 +106,13 @@ Yes.
 * New: Add FAQ entry
 * New: Add unit tests to verify search is removed from admin bar
 
-= 1.8.1 (2020-09-07) =
-* Change: Restructure unit test file structure
-    * New: Create new subdirectory `phpunit/` to house all files related to unit testing
-    * Change: Move `bin/` to `phpunit/bin/`
-    * Change: Move `tests/bootstrap.php` to `phpunit/`
-    * Change: Move `tests/` to `phpunit/tests/`
-    * Change: Rename `phpunit.xml` to `phpunit.xml.dist` per best practices
-* Change: Note compatibility through WP 5.5+
-
 _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/disable-search/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 2.0 =
+Recommended update: disabled the search block, noted compatibility through WP 5.8+, and restructured unit test directories.
 
 = 1.8.3 =
 Bugfix update: prevented PHP warnings when running under PHP 8 and actually prevent object unserialization.

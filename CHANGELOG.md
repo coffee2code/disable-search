@@ -1,6 +1,13 @@
 # Changelog
 
-## _(in-progress)_
+## 2.0 _(2021-09-13)_
+
+### Highlights:
+
+This release finally addresses disabling the search block, notes compatibility through WP 5.8+, and restructures unit test directories.
+
+### Details:
+
 * New: Disable the search block
     * New: Add `disable_core_search_block()` to unregister block via PHP
     * New: Add `enqueue_block_editor_assets()` to register JS script to unregister search block via JS

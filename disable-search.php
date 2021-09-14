@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Disable Search
- * Version:     1.8.3
+ * Version:     2.0
  * Plugin URI:  https://coffee2code.com/wp-plugins/disable-search/
  * Author:      Scott Reilly
  * Author URI:  https://coffee2code.com/
@@ -18,7 +18,7 @@
  *
  * @package Disable_Search
  * @author  Scott Reilly
- * @version 1.8.3
+ * @version 2.0
  */
 
 /*
@@ -51,7 +51,7 @@ class c2c_DisableSearch {
 	 * @since 1.3
 	 */
 	public static function version() {
-		return '1.8.3';
+		return '2.0';
 	}
 
 	/**
