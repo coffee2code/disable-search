@@ -8,6 +8,7 @@
   * Change: Update documentation to reflect search block being disabled
 * Change: Remove `get_search_form()` and simply use `__return_empty_string()` as callback to `'get_search_form'` filter
 * Change: Note compatibility through WP 5.8+
+* Change: Tweak installation instruction
 * Unit tests:
     * Change: Restructure unit test directories
         * Change: Move `phpunit/` into `tests/`
