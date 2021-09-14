@@ -84,7 +84,7 @@ class c2c_DisableSearch {
 		if ( ! is_admin() ) {
 			add_action( 'parse_query', array( __CLASS__, 'parse_query' ), 5 );
 		}
-		add_filter( 'get_search_form', array( __CLASS__, 'get_search_form' ), 999 );
+		add_filter( 'get_search_form', '__return_empty_string', 999 );
 
 		add_action( 'admin_bar_menu',  array( __CLASS__, 'admin_bar_menu' ), 11 );
 
@@ -132,17 +132,6 @@ class c2c_DisableSearch {
 	 */
 	public static function enqueue_block_editor_assets() {
 		wp_enqueue_script( 'disable-search-js', plugins_url( '/assets/js/disable-search.js', __FILE__ ), array( 'wp-blocks', 'wp-dom' ), self::version(), true );
-	}
-
-	/**
-	 * Returns nothing as the search form.
-	 *
-	 * @param  string $form The search form to be displayed.
-	 *
-	 * @return string Always returns an empty string.
-	 */
-	public static function get_search_form( $form ) {
-		return '';
 	}
 
 	/**

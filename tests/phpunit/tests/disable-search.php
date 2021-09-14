@@ -89,7 +89,7 @@ class Disable_Search_Test extends WP_UnitTestCase {
 		return array(
 			array( 'action', 'widgets_init',                 'disable_search_widget',   1 ),
 			array( 'action', 'parse_query',                  'parse_query',             5 ),
-			array( 'filter', 'get_search_form',              'get_search_form',       999 ),
+			array( 'filter', 'get_search_form',              '__return_empty_string', 999, false ),
 			array( 'action', 'admin_bar_menu',               'admin_bar_menu',         11 ),
 			array( 'filter', 'disable_wpseo_json_ld_search', '__return_true',          10, false ),
 			array( 'action', 'init',                         'disable_core_search_block',   11 ),

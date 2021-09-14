@@ -6,6 +6,7 @@
   * New: Add `enqueue_block_editor_assets()` to register JS script to unregister search block via JS
   * New: Add JS script file to unregister search block
   * Change: Update documentation to reflect search block being disabled
+* Change: Remove `get_search_form()` and simply use `__return_empty_string()` as callback to `'get_search_form'` filter
 * Change: Note compatibility through WP 5.8+
 * Unit tests:
     * Change: Restructure unit test directories
