@@ -4,6 +4,7 @@
 * Change: Safeguard JS from throwing error if WP JS isn't loaded (should be rare to never)
 * Change: Note compatibility through WP 6.3+
 * Change: Update copyright date (2023)
+* New: Add `.gitignore` file
 
 ## 2.0 _(2021-09-13)_
 
