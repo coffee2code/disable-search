@@ -110,7 +110,7 @@ class Disable_Search_Test extends WP_UnitTestCase {
 	}
 
 	public function test_version() {
-		$this->assertEquals( '2.0', c2c_DisableSearch::version() );
+		$this->assertEquals( '2.0.1', c2c_DisableSearch::version() );
 	}
 
 	public function test_hooks_plugins_loaded() {

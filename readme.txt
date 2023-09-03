@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.6
 Tested up to: 6.3
-Stable tag: 2.0
+Stable tag: 2.0.1
 
 Disable the built-in front-end search capabilities of WordPress.
 
@@ -72,6 +72,17 @@ Yes.
 
 == Changelog ==
 
+= 2.0.1 (2023-09-02) =
+* Change: Safeguard JS from throwing error if WP JS isn't loaded (should be rare to never)
+* Change: Note compatibility through WP 6.3+
+* Change: Update copyright date (2023)
+* Change: Tweak code alignment
+* New: Add `.gitignore` file
+* Unit tests:
+    * Fix: Allow tests to run against current versions of WordPress
+    * New: Add `composer.json` for PHPUnit Polyfill dependency
+    * Change: Prevent PHP warnings due to missing core-related generated files
+
 = 2.0 (2021-09-13) =
 Highlights:
 
@@ -99,17 +110,13 @@ Details:
 * Fix: Change `__wakeup()` method visibility from `private` to `public` to avoid warnings under PHP8
 * Fix: Throw an error when attempting to unserialize an instance of the class to actually prevent it from happening
 
-= 1.8.2 (2021-04-08) =
-* Change: Note compatibility through WP 5.7+
-* Change: Update copyright date (2021)
-* Change: Tweak wording and formatting of readme.txt
-* New: Add FAQ entry
-* New: Add unit tests to verify search is removed from admin bar
-
 _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/disable-search/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 2.0.1 =
+Trivial update: noted compatibility through WP 6.3+, updated unit tests to run against latest WordPress, and updated copyright date (2023)
 
 = 2.0 =
 Recommended update: disabled the search block, noted compatibility through WP 5.8+, and restructured unit test directories.
