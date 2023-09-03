@@ -1,6 +1,7 @@
 # Changelog
 
 ## _(in-progress)_
+* Change: Safeguard JS from throwing error if WP JS isn't loaded (should be rare to never)
 * Change: Note compatibility through WP 6.3+
 * Change: Update copyright date (2023)
 

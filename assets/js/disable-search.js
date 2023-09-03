@@ -1,3 +1,3 @@
-wp.domReady( () => {
+wp?.domReady( () => {
 	wp.blocks.unregisterBlockType( 'core/search' );
 } );
