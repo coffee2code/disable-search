@@ -4,6 +4,7 @@
 * Change: Safeguard JS from throwing error if WP JS isn't loaded (should be rare to never)
 * Change: Note compatibility through WP 6.3+
 * Change: Update copyright date (2023)
+* Change: Tweak code alignment
 * New: Add `.gitignore` file
 * Unit tests:
     * Fix: Allow tests to run against current versions of WordPress

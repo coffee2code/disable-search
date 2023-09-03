@@ -80,19 +80,19 @@ class c2c_DisableSearch {
 		load_plugin_textdomain( 'disable-search' );
 
 		// Register hooks.
-		add_action( 'widgets_init',    array( __CLASS__, 'disable_search_widget' ), 1 );
+		add_action( 'widgets_init',                 array( __CLASS__, 'disable_search_widget' ), 1 );
 		if ( ! is_admin() ) {
-			add_action( 'parse_query', array( __CLASS__, 'parse_query' ), 5 );
+			add_action( 'parse_query',              array( __CLASS__, 'parse_query' ), 5 );
 		}
-		add_filter( 'get_search_form', '__return_empty_string', 999 );
+		add_filter( 'get_search_form',              '__return_empty_string', 999 );
 
-		add_action( 'admin_bar_menu',  array( __CLASS__, 'admin_bar_menu' ), 11 );
+		add_action( 'admin_bar_menu',               array( __CLASS__, 'admin_bar_menu' ), 11 );
 
 		add_filter( 'disable_wpseo_json_ld_search', '__return_true' );
 
 		// Disable core search block.
-		add_action( 'init',                        array( __CLASS__, 'disable_core_search_block' ), 11 );
-		add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'enqueue_block_editor_assets' ) );
+		add_action( 'init',                         array( __CLASS__, 'disable_core_search_block' ), 11 );
+		add_action( 'enqueue_block_editor_assets',  array( __CLASS__, 'enqueue_block_editor_assets' ) );
 
 	}
 
