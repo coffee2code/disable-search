@@ -106,7 +106,7 @@ class c2c_DisableSearch {
 	/**
 	 * Unregisters the core/search block (at least for PHP).
 	 *
-	 * Though this tehnically works (the block gets unregistered), it doesn't
+	 * Though this technically works (the block gets unregistered), it doesn't
 	 * actually disable the block, which is at least still available via JS and
 	 * thus is functionally equivalent to this doing nothing.
 	 *
