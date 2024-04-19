@@ -1,3 +1,5 @@
 wp?.domReady( () => {
-	wp.blocks.unregisterBlockType( 'core/search' );
+	if ( wp.blocks.getBlockType( 'core/search' ) ) {
+		wp.blocks.unregisterBlockType('core/search');
+	}
 } );
