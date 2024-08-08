@@ -86,7 +86,7 @@ class c2c_DisableSearch {
 		}
 		add_filter( 'get_search_form',              '__return_empty_string', 999 );
 
-		add_action( 'admin_bar_menu',               array( __CLASS__, 'admin_bar_menu' ), 11 );
+		add_action( 'admin_bar_menu',               array( __CLASS__, 'admin_bar_menu' ), 99999 );
 
 		add_filter( 'disable_wpseo_json_ld_search', '__return_true' );
 

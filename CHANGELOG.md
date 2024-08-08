@@ -1,6 +1,7 @@
 # Changelog
 
 ## _(in-progress)_
+* Change: Remove the admin bar search field with a higher priority than what it was changed to in WP 6.6.
 * Change: Check if core/search block is registered before attempting to unregister. Props toru.
 * Change: Note compatibility through WP 6.6+
 * Change: Update copyright date (2024)
