@@ -267,7 +267,7 @@ class Disable_Search_Test extends WP_UnitTestCase {
 	public function test_admin_bar_search_widget_rendered_without_this_plugin() {
 		global $wp_admin_bar;
 
-		remove_action( 'admin_bar_menu',  array( 'c2c_DisableSearch', 'admin_bar_menu' ), 11 );
+		remove_action( 'admin_bar_menu',  array( 'c2c_DisableSearch', 'admin_bar_menu' ), 99999 );
 
 		$user_id  = $this->create_user( 'editor' );
 		_wp_admin_bar_init();
