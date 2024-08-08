@@ -13,7 +13,8 @@ This plugin is available in the WordPress Plugin Directory: https://wordpress.or
 
 ## Additional Documentation
 
-See [readme.txt](https://github.com/coffee2code/disable-search/blob/master/readme.txt) for additional usage information. See [CHANGELOG.md](CHANGELOG.md) for the list of changes for each release.
+* See [readme.txt](https://github.com/coffee2code/disable-search/blob/master/readme.txt) for additional usage information.
+* See [CHANGELOG.md](CHANGELOG.md) for the list of changes for each release.
 
 
 ## Support
