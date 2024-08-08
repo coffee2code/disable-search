@@ -155,6 +155,19 @@ class Disable_Search_Test extends WP_UnitTestCase {
 		$this->assertTrue( $theme->exists() );
 		switch_theme( $theme->get_stylesheet() );
 		$this->assertEquals( 'twentyseventeen', get_stylesheet() );
+
+		// Define minor function dependencies in the bundled theme being used for this test.
+		function twentyseventeen_unique_id( $prefix = '' ) {
+			static $id_counter = 0;
+			if ( function_exists( 'wp_unique_id' ) ) {
+					return wp_unique_id( $prefix );
+			}
+			return $prefix . (string) ++$id_counter;
+		}
+		function twentyseventeen_get_svg( $data = [] ) {
+			return '';
+		}
+
 		// Verify that the searchform.php file actually exists.
 		$this->assertTrue( file_exists( $theme->theme_root . '/twentyseventeen/searchform.php' ) );
 		// Now verify that the plugin prevents it from being used.
