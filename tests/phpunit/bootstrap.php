@@ -5,6 +5,9 @@
  * @package Disable_Search
  */
 
+// Prevent web access.
+( php_sapi_name() !== 'cli' ) && die();
+
 define( 'DISABLE_SEARCH_PLUGIN_DIR',  dirname( __FILE__, 3 ) );
 define( 'DISABLE_SEARCH_PLUGIN_FILE', DISABLE_SEARCH_PLUGIN_DIR . '/disable-search.php' );
 

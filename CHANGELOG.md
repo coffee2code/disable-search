@@ -5,6 +5,7 @@
 * Change: Check if core/search block is registered before attempting to unregister. Props toru.
 * Change: Note compatibility through WP 6.6+
 * Change: Update copyright date (2024)
+* Hardening: Prevent direct web access to `bootstrap.php`
 
 ## 2.0.1 _(2023-09-02)_
 * Change: Safeguard JS from throwing error if WP JS isn't loaded (should be rare to never)
