@@ -9,6 +9,7 @@
 * Unit tests:
     * Hardening: Prevent direct web access to `bootstrap.php`
     * Fix: Define functions now expected by the bundled theme being used
+* New: Add some potential TODO items
 
 ## 2.0.1 _(2023-09-02)_
 * Change: Safeguard JS from throwing error if WP JS isn't loaded (should be rare to never)
