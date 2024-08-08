@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.6
 Tested up to: 6.6
-Stable tag: 2.0.1
+Stable tag: 2.1
 
 Disable the built-in front-end search capabilities of WordPress.
 
@@ -72,6 +72,17 @@ Yes. The tests are not packaged in the release .zip file or included in plugins.
 
 == Changelog ==
 
+= 2.1 (2024-08-08) =
+* Change: Remove the admin bar search field with a higher priority than what it was changed to in WP 6.6.
+* Change: Check if core/search block is registered before attempting to unregister. Props toru.
+* Change: Note compatibility through WP 6.6+
+* Change: Update copyright date (2024)
+* Change: Remove development and testing-related files from release packaging
+* Unit tests:
+    * Hardening: Prevent direct web access to `bootstrap.php`
+    * Fix: Define functions now expected by the bundled theme being used
+* New: Add some potential TODO items
+
 = 2.0.1 (2023-09-02) =
 * Change: Safeguard JS from throwing error if WP JS isn't loaded (should be rare to never)
 * Change: Note compatibility through WP 6.3+
@@ -106,14 +117,13 @@ Details:
     * Change: In bootstrap, store path to plugin file constant
     * Change: In bootstrap, add backcompat for PHPUnit pre-v6.0
 
-= 1.8.3 (2021-05-01) =
-* Fix: Change `__wakeup()` method visibility from `private` to `public` to avoid warnings under PHP8
-* Fix: Throw an error when attempting to unserialize an instance of the class to actually prevent it from happening
-
 _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/disable-search/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 2.1 =
+Minor update: updated removal of admin bar search field, checked if core/search block is registered before attempting to unregister, noted compatibility through WP 6.6+, removed unit tests from release packaging, and updated copyright date (2024)
 
 = 2.0.1 =
 Trivial update: noted compatibility through WP 6.3+, updated unit tests to run against latest WordPress, and updated copyright date (2023)
