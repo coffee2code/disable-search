@@ -5,6 +5,7 @@
 * Change: Check if core/search block is registered before attempting to unregister. Props toru.
 * Change: Note compatibility through WP 6.6+
 * Change: Update copyright date (2024)
+* Change: Remove development and testing-related files from release packaging
 * Unit tests:
     * Hardening: Prevent direct web access to `bootstrap.php`
     * Fix: Define functions now expected by the bundled theme being used
