@@ -5,6 +5,8 @@
 * Change: Note compatibility through WP 6.8+
 * Change: Note compatibility through PHP 8.3+
 * Change: Update copyright date (2025)
+* Unit tests:
+    * Change: Use `expectException()` instead of `@expectedException` comment (for PHPUnit 9 support)
 
 ## 2.1 _(2024-08-08)_
 * Change: Remove the admin bar search field with a higher priority than what it was changed to in WP 6.6.

@@ -133,17 +133,13 @@ class Disable_Search_Test extends WP_UnitTestCase {
 		}
 	}
 
-	/**
-	 * @expectedException Error
-	 */
-	public function test_unable_to_instantiation_object_from_class() {
+	public function test_unable_to_instantiate_object_from_class() {
+		$this->expectException( Error::class );
 		new c2c_DisableSearch;
 	}
 
-	/**
-	 * @expectedException Error
-	 */
 	public function test_unable_to_unserialize_an_instance_of_the_class() {
+		$this->expectException( Error::class );
 		$data = 'O:17:"c2c_DisableSearch":0:{}';
 
 		unserialize( $data );
