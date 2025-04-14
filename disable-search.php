@@ -69,7 +69,7 @@ class c2c_DisableSearch {
 	 */
 	public function __wakeup() {
 		/* translators: %s: Name of plugin class. */
-		throw new Error( sprintf( __( '%s cannot be unserialized.', 'disable-search' ), __CLASS__ ) );
+		throw new Error( esc_html( sprintf( __( '%s cannot be unserialized.', 'disable-search' ), __CLASS__ ) ) );
 	}
 
 	/**
