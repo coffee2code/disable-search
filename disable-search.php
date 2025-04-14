@@ -76,9 +76,6 @@ class c2c_DisableSearch {
 	 * Initializes the plugin.
 	 */
 	public static function init() {
-		// Load textdomain.
-		load_plugin_textdomain( 'disable-search' );
-
 		// Register hooks.
 		add_action( 'widgets_init',                 array( __CLASS__, 'disable_search_widget' ), 1 );
 		if ( ! is_admin() ) {
