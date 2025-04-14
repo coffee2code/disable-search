@@ -1,6 +1,6 @@
 # Changelog
 
-## _(in-progress)_
+## 2.1.1 _(2025-04-14)_
 * Change: Discontinue unnecessary explicit loading of textdomain
 * Hardening: Ensure translated error message doesn't contain markup
 * Change: Note compatibility through WP 6.8+
